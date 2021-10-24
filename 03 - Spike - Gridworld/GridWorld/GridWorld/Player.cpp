@@ -4,51 +4,43 @@ using namespace std;
 class Player
 {
 private:
-	int x;
-	int y;
+	Coordinates coords;
 
 public: 
 	// constructor
 	Player(int startX, int startY)
 	{
-		x = startX;
-		y = startY;
+		coords.x = startX;
+		coords.y = startY;
 	};
 
 	//returns the x coordinate 
-	int GetX() 
+	Coordinates GetCoords() 
 	{
-		return x;
-	};
-
-
-	//returns the y coordinate
-	int GetY() 
-	{
-		return y;
+		return coords;
 	};
 
 	//moves the player north by updating the y position 
 	void MoveNorth() 
 	{
-		y++;
+		coords.y++;
 	};
 
 	//moves the player south by updating the y position 
 	void MoveSouth() 
 	{
-		y--;
+		coords.y--;
 	};
 
 	// moves the player east by updating the x position
 	void MoveEast() 
 	{
-		x++;
+		coords.x++;
 	};
 
 	// moves the player east by updating the x position
 	void MoveWest() 
 	{
-		x--;
+		coords.x--;
 	};
 };

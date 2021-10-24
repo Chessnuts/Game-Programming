@@ -1,15 +1,14 @@
 #pragma once
-using namespace std;
+#include "Coordinates.cpp"
+
 class Player
 {
 private:
-	int x;
-	int y;
+	Coordinates coords;
 
 public:
 	Player(int startX, int startY);
-	int GetX();
-	int GetY();
+	int GetCoords();
 	void MoveNorth();
 	void MoveSouth();
 	void MoveEast();

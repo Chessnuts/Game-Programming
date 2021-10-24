@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="GridWorld.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Coordinates.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
