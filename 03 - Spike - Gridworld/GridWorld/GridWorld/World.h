@@ -1,26 +1,9 @@
 #pragma once
 class World
 {
-	//Object that holds the world data
+private:
 
-	/*
-		Intended map:
-
-		########
-		#G D#D #
-		#   #  #
-		### # D#
-		#   #  #
-		# #### #
-		#      #
-		##S#####
-		########
-
-		# = wall (impassable)
-		S = Starting posisition
-		D = Death
-		G = Goal
-	*/
+public:
 
 };
 

@@ -7,6 +7,11 @@ private:
 	int y;
 
 public:
-	int getX();
-	int getY();
+	Player(int startX, int startY);
+	int GetX();
+	int GetY();
+	void MoveNorth();
+	void MoveSouth();
+	void MoveEast();
+	void MoveWest();
 };
