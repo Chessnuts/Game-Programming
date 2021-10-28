@@ -7,8 +7,8 @@ private:
 	Coordinates coords;
 
 public:
-	Player(int startX, int startY);
-	int GetCoords();
+	Player(Coordinates startCoords);
+	Coordinates GetCoords();
 	void MoveNorth();
 	void MoveSouth();
 	void MoveEast();

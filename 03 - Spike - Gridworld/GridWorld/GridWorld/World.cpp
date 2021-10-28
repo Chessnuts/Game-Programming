@@ -1,5 +1,4 @@
 #include "World.h"
-#include "string"
 
 using namespace std;
 class World
@@ -40,6 +39,15 @@ private:
 	};
 
 public:
+	Coordinates GetStart() 
+	{
+		//change this later to check the map for the starting point but for now  just give the hardcoded start
+		Coordinates c;
+		c.x = 2;
+		c.y = 1;
+		return c;
+	}
+
 	string GetPoint(Coordinates c) 
 	{
 		return map[c.x][c.y];

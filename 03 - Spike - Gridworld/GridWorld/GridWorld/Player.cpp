@@ -8,10 +8,9 @@ private:
 
 public: 
 	// constructor
-	Player(int startX, int startY)
+	Player(Coordinates startCoords)
 	{
-		coords.x = startX;
-		coords.y = startY;
+		coords = startCoords;
 	};
 
 	//returns the x coordinate 
