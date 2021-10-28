@@ -1,45 +1,41 @@
+#pragma once
 #include "Player.h"
 
 using namespace std;
-class Player
+
+
+//constructor
+Player::Player(Coordinates startCoords)
 {
-private:
-	Coordinates coords;
+	coords = startCoords;
+}
 
-public: 
-	// constructor
-	Player(Coordinates startCoords)
-	{
-		coords = startCoords;
-	};
+//returns the x coordinate 
+Coordinates Player::GetCoords() 
+{
+	return coords;
+}
 
-	//returns the x coordinate 
-	Coordinates GetCoords() 
-	{
-		return coords;
-	};
+//moves the player north by updating the y position 
+void Player::MoveNorth() 
+{
+	coords.y++;
+}
 
-	//moves the player north by updating the y position 
-	void MoveNorth() 
-	{
-		coords.y++;
-	};
-
-	//moves the player south by updating the y position 
-	void MoveSouth() 
-	{
+//moves the player south by updating the y position 
+void Player::MoveSouth() 
+{
 		coords.y--;
-	};
+}
 
-	// moves the player east by updating the x position
-	void MoveEast() 
-	{
-		coords.x++;
-	};
+// moves the player east by updating the x position
+void Player::MoveEast() 
+{
+	coords.x++;
+}
 
-	// moves the player east by updating the x position
-	void MoveWest() 
-	{
-		coords.x--;
-	};
-};
+// moves the player east by updating the x position
+void Player::MoveWest() 
+{
+	coords.x--;
+}
