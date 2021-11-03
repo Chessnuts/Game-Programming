@@ -1,5 +1,6 @@
 #pragma once
 #include "Player.h"
+#include <iostream>
 
 using namespace std;
 
@@ -19,13 +20,17 @@ Coordinates Player::GetCoords()
 //moves the player north by updating the y position 
 void Player::MoveNorth() 
 {
+	//cout << coords.y << endl;
+
 	coords.y++;
+
+	//cout << coords.y << endl;
 }
 
 //moves the player south by updating the y position 
 void Player::MoveSouth() 
 {
-		coords.y--;
+	coords.y--;
 }
 
 // moves the player east by updating the x position

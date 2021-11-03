@@ -17,7 +17,7 @@ string Input()
 	return i;
 }
 
-void Update(string input, World world, Player player, bool validAction)
+void Update(string input, World world, Player& player, bool& validAction)
 {
 
 	switch (input[0]) 
@@ -25,8 +25,9 @@ void Update(string input, World world, Player player, bool validAction)
 	case 'N' :
 		if (world.CheckNorth(player.GetCoords())) 
 		{
+			cout << "you moved north" << endl;
 			player.MoveNorth();
-			bool validAction = true;
+			validAction = true;
 		}
 
 		break;
@@ -34,8 +35,9 @@ void Update(string input, World world, Player player, bool validAction)
 	case 'S' :
 		if (world.CheckSouth(player.GetCoords()))
 		{
+			cout << "you moved south" << endl;
 			player.MoveSouth();
-			bool validAction = true;
+			validAction = true;
 		}
 
 		break;
@@ -43,8 +45,9 @@ void Update(string input, World world, Player player, bool validAction)
 	case 'E' :
 		if (world.CheckEast(player.GetCoords()))
 		{
+			cout << "you moved east" << endl;
 			player.MoveEast();
-			bool validAction = true;
+			validAction = true;
 		}
 
 		break;
@@ -52,19 +55,20 @@ void Update(string input, World world, Player player, bool validAction)
 	case 'W' :
 		if (world.CheckWest(player.GetCoords()))
 		{
+			cout << "you moved west" << endl;
 			player.MoveWest();
-			bool validAction = true;
+			validAction = true;
 		}
 
 		break;
 
 	case 'Q' :
 		isRunning = false;
-		
+		validAction = true;
 		break;
 
 	default :
-		bool validAction = false;
+		validAction = false;
 	}
 
 
@@ -72,13 +76,66 @@ void Update(string input, World world, Player player, bool validAction)
 
 void Render(World world, Player player, bool validAction)
 {
-	
+	// cout << player.GetCoords().x << player.GetCoords().y << endl;
+	if (isRunning)
+	{
+		if (validAction == false)
+		{
+			cout << "Invalid command, please try again." << endl;
+		}
+
+		if (world.GetPoint(player.GetCoords()) == "G")
+		{
+			cout << "Wow - you’ve discovered a large chest filled with GOLD coins!" << endl;
+			cout << "YOU WIN!!" << endl;
+
+			isRunning = false;
+
+			return;
+		}
+		else if (world.GetPoint(player.GetCoords()) == "D")
+		{
+			cout << "Arrrrgh... you’ve fallen down a pit." << endl;
+			cout << "YOU HAVE DIED!" << endl;
+
+			isRunning = false;
+
+			return;
+		}
+
+		string moves = "You can move ";
+
+		if (world.CheckNorth(player.GetCoords()))
+		{
+			moves += "N, ";
+		}
+
+		if (world.CheckSouth(player.GetCoords()))
+		{
+			moves += "S, ";
+		}
+
+		if (world.CheckEast(player.GetCoords()))
+		{
+			moves += "E, ";
+		}
+
+		if (world.CheckWest(player.GetCoords()))
+		{
+			moves += "W, ";
+		}
+		moves = moves.substr(0, moves.length() - 2);
+		cout << moves << ": >";
+	}
+	else 
+	{
+		cout << "Closing game...";
+	}
 }
 
 int main()
 {
-	bool validAction = true;
-
+	bool validAction = new bool(true);
 	string input;
 	World world;
 	Player player(world.GetStart());
@@ -97,6 +154,6 @@ int main()
 		Update(input, world, player, validAction); 
 		Render(world, player, validAction);
 	};
-	
+
 	return 0;
 }
