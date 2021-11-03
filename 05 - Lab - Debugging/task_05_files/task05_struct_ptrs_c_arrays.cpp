@@ -53,7 +53,7 @@ Updates
 
 using namespace std;
 
-// #TODO: Q.1 What is the difference between a struct and a class?
+// #TODO: Q.1 What is the difference between a struct and a class? 
 struct Particle
 {
     unsigned int age;
