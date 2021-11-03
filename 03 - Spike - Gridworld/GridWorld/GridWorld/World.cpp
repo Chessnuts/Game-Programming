@@ -43,9 +43,38 @@ string World::GetPoint(Coordinates c)
 		return map[c.x][c.y];
 }
 
-string World::GetMoves(Coordinates c)
+bool World::CheckNorth(Coordinates c)
 {
-	//how do i want to pass this back and process it??
-	return " ";
+	if (map[c.x][c.y + 1] != "#")
+	{
+		return true;
+	}
+	return false;
 }
 	
+bool World::CheckSouth(Coordinates c)
+{
+	if (map[c.x][c.y - 1] != "#")
+	{
+		return true;
+	}
+	return false;
+}
+
+bool World::CheckEast(Coordinates c)
+{
+	if (map[c.x + 1][c.y] != "#")
+	{
+		return true;
+	}
+	return false;
+}
+
+bool World::CheckWest(Coordinates c)
+{
+	if (map[c.x - 1][c.y] != "#")
+	{
+		return true;
+	}
+	return false;
+}

@@ -7,6 +7,8 @@
 
 using namespace std;
 
+bool isRunning = true;
+
 string Input() 
 {
 	string i;
@@ -17,11 +19,55 @@ string Input()
 
 void Update(string input, World world, Player player, bool validAction)
 {
-	//check if valid
-	
-	//if valid, update position 
 
-	//else don't and return invalid signal
+	switch (input[0]) 
+	{
+	case 'N' :
+		if (world.CheckNorth(player.GetCoords())) 
+		{
+			player.MoveNorth();
+			bool validAction = true;
+		}
+
+		break;
+
+	case 'S' :
+		if (world.CheckSouth(player.GetCoords()))
+		{
+			player.MoveSouth();
+			bool validAction = true;
+		}
+
+		break;
+
+	case 'E' :
+		if (world.CheckEast(player.GetCoords()))
+		{
+			player.MoveEast();
+			bool validAction = true;
+		}
+
+		break;
+
+	case 'W' :
+		if (world.CheckWest(player.GetCoords()))
+		{
+			player.MoveWest();
+			bool validAction = true;
+		}
+
+		break;
+
+	case 'Q' :
+		isRunning = false;
+		
+		break;
+
+	default :
+		bool validAction = false;
+	}
+
+
 }
 
 void Render(World world, Player player, bool validAction)
@@ -31,7 +77,6 @@ void Render(World world, Player player, bool validAction)
 
 int main()
 {
-	bool isRunning = true;
 	bool validAction = true;
 
 	string input;

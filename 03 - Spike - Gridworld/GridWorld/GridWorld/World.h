@@ -20,6 +20,9 @@ public:
 	World();
 	Coordinates GetStart();
 	string GetPoint(Coordinates c);
-	string GetMoves(Coordinates c);
+	bool CheckNorth(Coordinates c);
+	bool CheckSouth(Coordinates c);
+	bool CheckEast(Coordinates c);
+	bool CheckWest(Coordinates c);
 };
 
