@@ -73,6 +73,7 @@ void setParticleWith(Particle, int, int, int);
 
 void showParticleArray(Particle*, int);
 
+
 // #TODO: Q.4 Does your IDE know if this method is used?
 // If yes - how does it indicate this? (Colour? Tip? Other?)
 void showParticleArray_2(Particle arr[], int size);
@@ -88,7 +89,7 @@ int main()
         // Note: your IDE might be warning or making a note - if so note that
         // in your answer.
         cout << "Q.5: a with uninitialised values ? ... ";
-        showParticle(a);
+        //showParticle(a);
         a.age = 0;
         a.x = 10;
         a.y = 20;
