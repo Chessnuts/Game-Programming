@@ -53,6 +53,7 @@ Updates
 
 using namespace std;
 
+
 // #TODO: Q.1 What is the difference between a struct and a class? 
 struct Particle
 {
@@ -67,7 +68,7 @@ void showParticle(Particle);
 
 // #TODO: Q.3 Why are variable names not needed here?
 // Extra: Could you add variable names? Would that be good?
-Particle getParticleWith(int, int, int);
+Particle getParticleWith(unsigned int, int, int);
 
 void setParticleWith(Particle, int, int, int);
 
@@ -108,7 +109,7 @@ int main()
 
     // 2. Get a particle with the values we pass to the function
     //    (When you are up to this section, change false to true. Keeps things compact)
-    if (false) {
+    if (true) {
         cout << " << Section 2 >>" << endl;
         Particle p1 = getParticleWith(1, 2, 3);
         cout << "Q.8: p1 with 1,2,3 ? ... ";
@@ -121,7 +122,7 @@ int main()
     }
 
     // 3. Set values in a particle that we already have
-    if (false) {
+    if (true) {
         cout << " << Section 3 >>" << endl;
         // This compiles/runs, but ...
         Particle p1 = { 1,1,1 };
@@ -132,7 +133,7 @@ int main()
     }
 
     // 4. Use a pointer to an existing particle
-    if (false) {
+    if (true) {
         cout << " << Section 4 >>" << endl;
         Particle* p1_ptr;
         // set b to be something sensible
@@ -160,13 +161,16 @@ int main()
         cout << "Q.13: p1 via dereferenced pointer ... ";
         showParticle((*p1_ptr));
         // #TODO: Q.13 What is the dereferenced pointer (from the example above)?
-
+        cout << "Address of p1:" << &p1 << endl;
+        cout << "Value of p1_ptr:" << p1_ptr << endl;
         // update p1, ...
         p1 = getParticleWith(7, 7, 7);
         // Note: p1 is now a new particle struct with new values. So, ...
         // #TODO: Q.14 Is p1 stored on the heap or stack?
         // #TODO: Q.15 What is p1_ptr pointing to now? (Has it changed?)
         // Tip: Use your IDE inspector to check the "address" of p1 and value of p1_ptr
+        cout << "Address of p1:" << &p1 << endl;
+        cout << "Value of p1_ptr:" << p1_ptr << endl;
         cout << "values of new p1 ? ... ";
         showParticle(p1);
         cout << "particle values at p1_ptr ?... ";
@@ -175,9 +179,9 @@ int main()
 
     }
     // #TODO: Q.17 Is p1 still available? Explain.
-
+    
     // 5. Array of structs
-    if (false) {
+    if (true) {
         cout << " << Section 5 >>" << endl;
         // #TODO: Q.18 <deleted - ignore> :)
 
@@ -189,7 +193,7 @@ int main()
         p_array1[2] = getParticleWith(7, 8, 9);
 
         // #TODO: Q.19 Uncomment the next code line - will it compile?
-        //p_array1[3] = getParticleWith(0,0,0);
+        ///p_array1[3] = getParticleWith(0,0,0);
         // - If it compiles, does it run without errors?
         // #TODO: Q.20 Does your IDE tell you of any issues? If so, how?
         // NOTE: Recommend you re-comment the line - it's not needed later
@@ -222,16 +226,16 @@ int main()
         // Tip: Note the output values shown. Consider if they make sense.
         // Extra: You might see some values that we set earlier. Does that make sense?
         cout << "Q.25: Array position overrun ... " << endl;
-        showParticleArray(p_array2, 3); // <-- change size from 3 to 10
+        showParticleArray(p_array2, 10); // <-- change size from 3 to 10
     }
 
     // 6. Struct pointer with new and delete for memory
-    if (false) {
+    if (true) {
         cout << " << Section 6 >>" << endl;
         // Some pointer warm-up ideas. What you expect?
         cout << "Q.26: Warm up concept checks ... " << endl;
         Particle* p1_ptr; // points to nothing - does it?
-        cout << " - pointer address (does it?): " << hex << p1_ptr << endl;
+       // cout << " - pointer address (does it?): " << hex << *p1_ptr << endl;
         Particle p1 = { 9,9,9 }; // a real and initialised Particle variable
         cout << " - pointer address of p1:" << hex << &p1 << endl;
         p1_ptr = &p1; // copy the point to the same particle
@@ -256,7 +260,7 @@ int main()
         cout << "Q.29 Can we still show value at pointer address? (It was deleted, so ...) " << endl;
         cout << " - pointer address " << hex << p1_ptr << endl;
         // #TODO: Q.29 What happens when we try this? Explain.
-        showParticle((*p1_ptr));
+        //showParticle((*p1_ptr));
 
         cout << "Q.30 nullptr vs NULL vs 0 ... for pointers." << endl;
         // house keeping - if a pointer isn't valid, set it to nullptr/NULL
@@ -281,7 +285,7 @@ int main()
 
 
     // 7. Array of pointers to structs
-    if (false) {
+    if (true) {
         cout << " << Section 7 >>" << endl;
         const int n = 5;
         Particle* ptr_array[n]; // contains pointers to nowhere so far!
@@ -301,7 +305,7 @@ int main()
         for (int i = 0; i < n; i++) {
             cout << " - ptr_array[" << i << "] value " << hex << ptr_array[i] << endl;
         }
-        // #TODO: Q.32 Are default pointer values in an array safe? Explain.
+        // #TODO: Q.32 Are default pointer values in an array safe?  Explain.
 
         // Reserve memory for each particle and assign address
         // Note: These are just structs so think memory not constructor in this case.
@@ -330,6 +334,13 @@ int main()
 
         // Note: if we dynamically created the array (with new), we should clean that up too.
         // #TODO: Q.35 How do you create an array with new and set the size?
+
+        Particle* my_array;
+        my_array = new Particle[n];
+
+        delete[] my_array;
+
+
     }
 
     return 0;
@@ -344,7 +355,7 @@ void showParticle(Particle p)
     cout << "(x,y)=(" << p.x << "," << p.y << ")" << endl;
 }
 
-Particle getParticleWith(int age, int x, int y)
+Particle getParticleWith(unsigned int age, int x, int y)
 {
     Particle result;
     result.age = age;
@@ -381,14 +392,14 @@ void showParticleArray_2(Particle arr[], int size)
 
     // #TODO: Q.24 Uncomment the following. It gives different values to those we saw before
     //  So it won't work as a way to determine array size - but why?
-    /*
+    
      if (true) {
          cout << "Array as arr[] ..." << endl;
          cout << " - sizeof entire array? " << sizeof(arr) << endl;
-         cout << " - sizeof array element? " << sizeof(arr) << endl;
+         cout << " - sizeof array element? " << sizeof(arr[0]) << endl;
          cout << " - array size n is: " << (sizeof(arr) / sizeof(arr[0])) << endl;
      }
-     */
+     
      // NOTE: The above might get warnings (good!). Not all compilers/IDEs though.
      // Extra: Make a note about what is giving you warnings if you know.
 
