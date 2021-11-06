@@ -5,6 +5,7 @@ bool StateManager::Running() const
 {
 	return state != STATES::DONE;
 }
+
 State* StateManager::Current()
 {
 	if (state == STATES::WELCOME)
@@ -26,6 +27,10 @@ State* StateManager::Current()
 	else if (state == STATES::HELP)
 	{
 		current = &help;
+	}
+	else if (state == STATES::QUIT)
+	{
+		current = &quit;
 	}
 	return current;
 }

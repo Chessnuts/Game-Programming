@@ -145,6 +145,7 @@
     <ClCompile Include="Help.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="PlayAdventure.cpp" />
+    <ClCompile Include="Quit.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="StateManager.cpp" />
     <ClCompile Include="Task 8 Zorkish States.cpp" />
@@ -157,6 +158,7 @@
     <ClInclude Include="Help.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="PlayAdventure.h" />
+    <ClInclude Include="Quit.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateManager.h" />
     <ClInclude Include="states.h" />

@@ -6,6 +6,7 @@
 #include "Help.h"
 #include "PlayAdventure.h"
 #include "Gameplay.h"
+#include "Quit.h"
 
 extern STATES state;
 
@@ -19,12 +20,14 @@ private:
 	Gameplay gameplay;
 	Help help;
 	//HallOfFame hallOfFame;
-	//Quit quit;
+	Quit quit;
 
 	State* current;
 	bool running = true;
 
 public:
+	StateManager() {};
+	~StateManager() {};
 	bool Running() const;
 	State* Current();
 };
