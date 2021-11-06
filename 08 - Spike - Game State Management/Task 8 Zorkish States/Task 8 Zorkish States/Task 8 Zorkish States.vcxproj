@@ -145,14 +145,16 @@
     <ClCompile Include="State.cpp" />
     <ClCompile Include="StateManager.cpp" />
     <ClCompile Include="Task 8 Zorkish States.cpp" />
+    <ClCompile Include="Welcome.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HallOfFame.h" />
-    <ClInclude Include="states.h" />
     <ClInclude Include="Help.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateManager.h" />
+    <ClInclude Include="states.h" />
+    <ClInclude Include="Welcome.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

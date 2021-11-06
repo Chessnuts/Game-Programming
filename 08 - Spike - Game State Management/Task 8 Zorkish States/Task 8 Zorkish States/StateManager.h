@@ -1,13 +1,17 @@
 #pragma once
 #include "State.h"
+#include "Welcome.h"
+#include "MainMenu.h"
 #include "states.h"
+
+extern STATES state;
 
 class StateManager
 {
 private:
 	//states here
-	//Welcome welcome;
-	//MainMenu mainMenu;
+	Welcome welcome;
+	MainMenu mainMenu;
 	//PlayGame playGame;
 	//Help help;
 	//HallOfFame hallOfFame;

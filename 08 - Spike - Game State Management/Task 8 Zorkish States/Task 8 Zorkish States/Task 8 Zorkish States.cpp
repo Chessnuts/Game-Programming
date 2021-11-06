@@ -3,17 +3,23 @@
 
 #include <iostream>
 #include "State.h"
+#include "StateManager.h"
+#include "MainMenu.h"
+#include "Welcome.h"
+#include "states.h"
 
 using namespace std;
+STATES state = STATES::WELCOME;
 
 int main()
 {
     StateManager manager;
 
-    while (manager.running())
+
+    while (manager.Running())
     {
-        manager.render();
-        manager.update();
+        manager.Current()->Render();
+        manager.Current()->Update();
     }
 
     return 0;
