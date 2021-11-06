@@ -8,6 +8,7 @@
 #include "Gameplay.h"
 #include "Quit.h"
 #include "HallOfFame.h"
+#include "About.h"
 
 extern STATES state;
 
@@ -21,6 +22,7 @@ private:
 	Gameplay gameplay;
 	Help help;
 	HallOfFame hallOfFame;
+	About about;
 	Quit quit;
 
 	State* current;

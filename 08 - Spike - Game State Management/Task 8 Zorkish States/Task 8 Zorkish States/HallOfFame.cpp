@@ -15,10 +15,8 @@ void HallOfFame::Update()
 void HallOfFame::Render()
 {
 	cout << "Zorkish :: Hall Of Fame" << endl;
-	cout << "--------------------------------------------------------" << endl;
-	cout << endl;
-	cout << "Top 10 Zorkish Champions" << endl;
-	cout << endl;
+	cout << "--------------------------------------------------------" << endl << endl;
+	cout << "Top 10 Zorkish Champions" << endl << endl;
 	cout << "\t" << "1. Fred, Mountain World, 5000" << endl;
 	cout << "\t" << "2. Mary, Mountain World, 4000" << endl;
 	cout << "\t" << "3. Jow, Water World, 3000" << endl;
@@ -28,8 +26,7 @@ void HallOfFame::Render()
 	cout << "\t" << "7. Clark, Mountain World, 800" << endl;
 	cout << "\t" << "8. Harold, Mountain World, 500" << endl;
 	cout << "\t" << "9. Julie, Water World, 300" << endl;
-	cout << "\t" << "10. Bill, Box World, -5" << endl;
-	cout << endl;
+	cout << "\t" << "10. Bill, Box World, -5" << endl << endl;
 	cout << "Press ESC or Enter to return to the Main Menu" << endl;
 	cout << "Press Enter to return to the Main Menu" << endl;
 }

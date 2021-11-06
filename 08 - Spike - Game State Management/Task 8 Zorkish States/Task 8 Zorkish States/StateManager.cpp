@@ -28,6 +28,10 @@ State* StateManager::Current()
 	{
 		current = &hallOfFame;
 	}
+	else if (state == STATES::ABOUT)
+	{
+		current = &about;
+	}
 	else if (state == STATES::HELP)
 	{
 		current = &help;
