@@ -6,54 +6,14 @@
 
 using namespace std;
 
-void initializeGame()
-{
-
-}
-
-string Input()
-{
-
-}
-
-void Update()
-{
-
-}
-
-void Render()
-{
-
-}
-
 int main()
 {
-    bool running = true;
-    string input;
-    int currentState = 0;
-    //MainMenu mainMenu;
-    //Adventure adventure;
-    //Help help;
-    //About about;
-    //Quit quit;
+    StateManager manager;
 
-    State testState1;
-    State testState2;
-
-    State state[2] = {testState1, testState2};
-
-    initializeGame();
-
-    while (running)
+    while (manager.running())
     {
-        //player input
-        input = Input();
-
-        //update function
-        Update();
-
-        //render
-        Render();
+        manager.render();
+        manager.update();
     }
 
     return 0;

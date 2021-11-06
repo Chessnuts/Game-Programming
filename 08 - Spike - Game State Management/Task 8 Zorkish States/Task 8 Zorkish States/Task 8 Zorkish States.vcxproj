@@ -148,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HallOfFame.h" />
+    <ClInclude Include="states.h" />
     <ClInclude Include="Help.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="State.h" />
