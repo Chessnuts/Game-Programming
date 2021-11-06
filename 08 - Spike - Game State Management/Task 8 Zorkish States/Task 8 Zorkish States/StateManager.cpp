@@ -24,6 +24,10 @@ State* StateManager::Current()
 	{
 		current = &mainMenu;
 	}
+	else if (state == STATES::HALLOFFAME)
+	{
+		current = &hallOfFame;
+	}
 	else if (state == STATES::HELP)
 	{
 		current = &help;

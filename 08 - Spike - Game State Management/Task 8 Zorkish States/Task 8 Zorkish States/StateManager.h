@@ -7,6 +7,7 @@
 #include "PlayAdventure.h"
 #include "Gameplay.h"
 #include "Quit.h"
+#include "HallOfFame.h"
 
 extern STATES state;
 
@@ -19,7 +20,7 @@ private:
 	PlayAdventure playGame;
 	Gameplay gameplay;
 	Help help;
-	//HallOfFame hallOfFame;
+	HallOfFame hallOfFame;
 	Quit quit;
 
 	State* current;
