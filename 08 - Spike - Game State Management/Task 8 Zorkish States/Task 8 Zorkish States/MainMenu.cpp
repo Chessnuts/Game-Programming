@@ -12,6 +12,31 @@ void MainMenu::Update()
 	string input;
 	cin >> input;
 
+	switch (input[0])
+	{
+	case '1':
+		state = STATES::PLAY_GAME;
+		break;
+
+	case '2':
+		state = STATES::HALLOFFAME;
+		break;
+
+	case '3':
+		state = STATES::HELP;
+		break;
+
+	case '4':
+		state = STATES::ABOUT;
+		break;
+
+	case '5':
+		state = STATES::QUIT;
+		break;
+
+	default:
+		
+	}
 }
 
 void MainMenu::Render()
