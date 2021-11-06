@@ -15,5 +15,9 @@ State* StateManager::Current()
 	{
 		current = &mainMenu;
 	}
+	else if (state == STATES::HELP)
+	{
+		current = &help;
+	}
 	return current;
 }

@@ -35,7 +35,7 @@ void MainMenu::Update()
 		break;
 
 	default:
-		
+		cout << "Try again" << endl;
 	}
 }
 

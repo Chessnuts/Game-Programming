@@ -3,6 +3,7 @@
 #include "Welcome.h"
 #include "MainMenu.h"
 #include "states.h"
+#include "Help.h"
 
 extern STATES state;
 
@@ -13,7 +14,7 @@ private:
 	Welcome welcome;
 	MainMenu mainMenu;
 	//PlayGame playGame;
-	//Help help;
+	Help help;
 	//HallOfFame hallOfFame;
 	//Quit quit;
 
