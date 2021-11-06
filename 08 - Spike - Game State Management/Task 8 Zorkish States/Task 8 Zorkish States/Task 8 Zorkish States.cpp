@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+#include "State.h"
 
 using namespace std;
 
@@ -29,6 +30,17 @@ int main()
 {
     bool running = true;
     string input;
+    int currentState = 0;
+    //MainMenu mainMenu;
+    //Adventure adventure;
+    //Help help;
+    //About about;
+    //Quit quit;
+
+    State testState1;
+    State testState2;
+
+    State state[2] = {testState1, testState2};
 
     initializeGame();
 
