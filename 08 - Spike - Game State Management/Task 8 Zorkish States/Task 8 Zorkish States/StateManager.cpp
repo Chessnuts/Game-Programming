@@ -36,9 +36,9 @@ State* StateManager::Current()
 	{
 		current = &help;
 	}
-	else if (state == STATES::QUIT)
+	else if (state == STATES::QUITGAME)
 	{
-		current = &quit;
+		current = &quitGame;
 	}
 	return current;
 }

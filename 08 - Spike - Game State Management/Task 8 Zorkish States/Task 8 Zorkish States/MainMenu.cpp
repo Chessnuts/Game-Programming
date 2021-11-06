@@ -31,7 +31,7 @@ void MainMenu::Update()
 		break;
 
 	case '5':
-		state = STATES::QUIT;
+		state = STATES::QUITGAME;
 		break;
 
 	default:

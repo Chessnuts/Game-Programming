@@ -9,6 +9,7 @@
 #include "Quit.h"
 #include "HallOfFame.h"
 #include "About.h"
+#include "QuitGame.h"
 
 extern STATES state;
 
@@ -24,6 +25,7 @@ private:
 	HallOfFame hallOfFame;
 	About about;
 	Quit quit;
+	QuitGame quitGame;
 
 	State* current;
 	bool running = true;
