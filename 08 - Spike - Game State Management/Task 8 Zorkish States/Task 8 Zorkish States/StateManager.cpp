@@ -15,6 +15,10 @@ State* StateManager::Current()
 	{
 		current = &playGame;
 	}
+	else if (state == STATES::GAMEPLAY)
+	{
+		current = &gameplay;
+	}
 	else if (state == STATES::MAIN_MENU)
 	{
 		current = &mainMenu;

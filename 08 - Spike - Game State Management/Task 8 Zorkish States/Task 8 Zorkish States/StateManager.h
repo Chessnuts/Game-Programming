@@ -5,6 +5,7 @@
 #include "states.h"
 #include "Help.h"
 #include "PlayAdventure.h"
+#include "Gameplay.h"
 
 extern STATES state;
 
@@ -15,6 +16,7 @@ private:
 	Welcome welcome;
 	MainMenu mainMenu;
 	PlayAdventure playGame;
+	Gameplay gameplay;
 	Help help;
 	//HallOfFame hallOfFame;
 	//Quit quit;
