@@ -101,32 +101,34 @@ void showIntArray(const array<int, 3>& arr);
 int main() {
     // #TODO: Uncomment each of the _demo function to investigate!!
 
-    //array_demo_1();
+    array_demo_1();
     // #TODO: Q.1 There are inside array_demo_1 - answer them there.
 
-    //array_demo_2();
+    array_demo_2();
     // #TODO: Q.2 In array_demo_2, explain what a4(a1) does
 
-    //array_demo_3();
+    array_demo_3();
     // #TODO: Q.3 No questions for array_demo_3, it's just a demo of Struct/Class use with array.
 
-    //stack_demo();
+    stack_demo();
     // #TODO: Q.4 How do we (what methods) add and remove items to a stack?
     // #TODO: Q.5 A stack has no no [] or at() method - why?
 
-    //queue_demo();
+    queue_demo();
     // #TODO: Q.6 What is the difference between a stack.pop() and a queue.pop() ?
 
-    //list_demo();
+    list_demo();
     // #TODO: Q.7 Can we access a list value using and int index? Explain.
     // #TODO: Q.8 Is there a reason to use a list instead of a vector?
 
-    //vector_demo();
+    vector_demo();
     // #TODO: Q.9 Was max_size and size the same? (Can they be different?)
     // #TODO: Q.10 Which ParticleClass constructor was called?
     // #TODO: Q.11 Were the ParticleClass instances deleted? If so, how?
     // #TODO: Q.12 Was the vector instance deleted? If so, how do you know this?
     // #TODO: Q.13 Your IDE might suggest to use emplace_back instead of push_back. What does this mean?
+
+    cout << "debug" << endl;
 
     return 0;
 }
@@ -218,8 +220,8 @@ void array_demo_1() {
         showIntArray(a1);
     }
 
-    // access of array by [index] is not range protected (BAD)
-    cout << "What is at [3]? (out of bounds) " << a1[3] << endl;
+    // access of array by [index] i  not range protected (BAD)
+    cout << "What is at [3]? (out of bounds) " << a1[2] << endl;
     // #TODO: Q.1.7 Try this. Why does a1[3] work but at(3) does not?
     if (false)
         cout << "What is at(3)? (out of range exception) " << a1.at(3) << endl;
@@ -251,7 +253,9 @@ void array_demo_1() {
     cout << "Reverse Sort() on a1, now ..." << endl;
     showIntArray(a1);
     // #TODO: Q.1.10 How would you do a forward (not reverse) sort?
-
+    sort(a1.begin(), a1.end());
+    cout << "Forward Sort() on a1, now ..." << endl;
+    showIntArray(a1);
     // multidimensional array (note the dimension order)
     array<array<int, 2>, 4> a_2d = { {{1, 2}, {3, 4}, {5, 6}, {7, 8}} };
     cout << "2d array access a_2d[2][0] == " << a_2d[2][0] << endl;
