@@ -1,4 +1,5 @@
 #include "Help.h"
+#include <conio.h>
 
 using namespace std;
 
@@ -11,8 +12,7 @@ Help::Help()
 
 void Help::Update()
 {
-	string input;
-	cin >> input;
+	char input = _getch();
 
 	state = STATES::MAIN_MENU;
 }

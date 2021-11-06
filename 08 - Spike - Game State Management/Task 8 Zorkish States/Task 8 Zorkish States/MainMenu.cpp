@@ -1,4 +1,5 @@
 #include "MainMenu.h"
+#include <conio.h>
 
 using namespace std;
 
@@ -9,10 +10,9 @@ MainMenu::MainMenu()
 
 void MainMenu::Update()
 {
-	string input;
-	cin >> input;
+	char input = _getch();
 
-	switch (input[0])
+	switch (input)
 	{
 	case '1':
 		state = STATES::PLAY_GAME;
