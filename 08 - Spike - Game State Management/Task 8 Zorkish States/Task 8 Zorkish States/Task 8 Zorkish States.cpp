@@ -3,7 +3,46 @@
 
 #include <iostream>
 
+using namespace std;
+
+void initializeGame()
+{
+
+}
+
+string Input()
+{
+
+}
+
+void Update()
+{
+
+}
+
+void Render()
+{
+
+}
+
 int main()
 {
-    std::cout << "Hello World!\n";
+    bool running = true;
+    string input;
+
+    initializeGame();
+
+    while (running)
+    {
+        //player input
+        input = Input();
+
+        //update function
+        Update();
+
+        //render
+        Render();
+    }
+
+    return 0;
 }
