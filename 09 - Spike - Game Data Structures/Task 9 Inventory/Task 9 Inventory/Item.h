@@ -7,9 +7,14 @@ class Item
 {
 private:
 	string name;
+	string key;
 	string description;
 public:
-	Item();
-	~Item();
+	Item(string n, string d);
+	~Item() {};
+
+	string GetName();
+	string GetKey();
+	string GetDescription();
 };
 
