@@ -1,9 +1,10 @@
 #pragma once
 #include <string>
+#include "GameObject.h"
 
 using namespace std;
 
-class Item
+class Item: public GameObject
 {
 private:
 	string name;
@@ -17,4 +18,3 @@ public:
 	string GetKey();
 	string GetDescription();
 };
-
