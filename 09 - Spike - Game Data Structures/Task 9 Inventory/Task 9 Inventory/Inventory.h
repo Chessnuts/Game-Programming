@@ -10,8 +10,8 @@ class Inventory
 private:
 	vector<Item*> inventory;
 public:
-	Inventory();
-	~Inventory();
+	Inventory() {};
+	~Inventory() {};
 
 	bool HasItem(string id);
 	void Put(Item *it);

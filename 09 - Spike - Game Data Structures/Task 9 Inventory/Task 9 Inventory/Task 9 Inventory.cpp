@@ -4,7 +4,8 @@
 #include <iostream>
 #include "IdentifiableObject.h"
 #include "GameObject.h"
-
+#include "Item.h"
+#include "Inventory.h"
 
 using namespace std;
 
@@ -44,22 +45,51 @@ void identifiableObjectTest()
 
 void GameObjectTest()
 {
+    GameObject go({ "game object", "an object" }, "game object", "this is a game object");
 
+    if (go.AreYou("an object"))
+    {
+        cout << "ids work" << endl;
+    }
+
+    cout << go.GetName() << endl;
+
+    cout << go.GetShortDescription() << endl;
+
+    cout << go.GetFullDescription() << endl;
 }
 
 void ItemTest()
 {
+    //same as gameobject, basically just testing that the inheritance works
+    Item it({ "item", "an item" }, "item", "this is an item");
 
+    if (it.AreYou("an item"))
+    {
+        cout << "ids work" << endl;
+    }
+
+    cout << it.GetName() << endl;
+
+    cout << it.GetShortDescription() << endl;
+
+    cout << it.GetFullDescription() << endl;
 }
 
 void InventoryTest()
 {
-
+    Inventory in;
+    Item it({ "item 1", "an item" }, "item 1", "this is an item");
 }
 
 int main()
 {
     identifiableObjectTest();
+    GameObjectTest();
+    ItemTest();
+
+
+    cout << "finished!!" << endl;
 
     return 0;
 }
