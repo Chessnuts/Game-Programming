@@ -1,15 +1,15 @@
 #pragma once
 #include <list>
-#include <string>
+#include <vector>
 
 using namespace std;
 
 class IdentifiableObject
 {
 private:
-	list<string> identifiers;
+	vector<string> identifiers;
 public:
-	IdentifiableObject(list<string> ids);
+	IdentifiableObject(vector<string> ids);
 	~IdentifiableObject();
 
 	bool AreYou(string id);
