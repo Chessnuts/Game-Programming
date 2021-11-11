@@ -1,22 +1,22 @@
 #pragma once
 #include "Item.h"
 #include <string>
-#include <map>
+#include <vector>
 
 using namespace std;
 
 class Inventory
 {
 private:
-	multimap<string&, Item> inventory;
+	vector<Item> inventory;
 public:
 	Inventory();
 	~Inventory();
 
-	void Add(Item *item);
-	void Remove(Item* item, string key);
-	bool HasItem(Item* item, string key);
-	Item Get(string name);
-	void View();
+	bool HasItem();
+	void Put(Item it);
+	Item Take(string id);
+	Item Fetch(string id);
+	string ItemList();
 };
 
