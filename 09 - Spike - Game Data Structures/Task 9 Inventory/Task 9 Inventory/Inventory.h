@@ -8,15 +8,15 @@ using namespace std;
 class Inventory
 {
 private:
-	vector<Item> inventory;
+	vector<Item*> inventory;
 public:
 	Inventory();
 	~Inventory();
 
-	bool HasItem();
-	void Put(Item it);
+	bool HasItem(string id);
+	void Put(Item *it);
 	Item Take(string id);
-	Item Fetch(string id);
+	Item* Fetch(string id);
 	string ItemList();
 };
 
