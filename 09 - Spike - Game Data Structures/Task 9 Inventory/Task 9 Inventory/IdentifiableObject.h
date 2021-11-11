@@ -1,6 +1,7 @@
 #pragma once
 #include <list>
 #include <vector>
+#include <string>
 
 using namespace std;
 
@@ -9,6 +10,7 @@ class IdentifiableObject
 private:
 	vector<string> identifiers;
 public:
+	IdentifiableObject() {};
 	IdentifiableObject(vector<string> ids);
 	~IdentifiableObject();
 
