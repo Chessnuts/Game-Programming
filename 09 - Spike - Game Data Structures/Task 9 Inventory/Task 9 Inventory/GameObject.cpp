@@ -3,7 +3,7 @@
 
 using namespace std;
 
-GameObject::GameObject(vector<string> ids, string n, string d)
+GameObject::GameObject(vector<string> ids, string n, string d) : IdentifiableObject(ids)
 {
 	name = n;
 	description = d;

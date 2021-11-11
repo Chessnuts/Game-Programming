@@ -1,20 +1,6 @@
 #include "Item.h"
 
-Item::Item(string n, string d) {
-    name = n;
-    description = d;
-}
-
-string Item::GetName() {
-    return name;
-}
-
-
-string Item::GetKey() {
-    return key;
-}
-
-
-string Item::GetDescription() {
-    return description;
+Item::Item(vector<string> ids, string n, string d) : GameObject(ids, n, d)
+{
+    
 }

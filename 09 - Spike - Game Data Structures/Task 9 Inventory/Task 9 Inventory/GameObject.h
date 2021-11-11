@@ -8,7 +8,7 @@ private:
 
 public:
 	GameObject() {};
-	GameObject(vector<string> ids, string n, string d) : IdentifiableObject(ids);
+	GameObject(vector<string> ids, string n, string d);
 	~GameObject() {};
 	string GetName();
 	string GetShortDescription();
