@@ -53,9 +53,16 @@ Item* Inventory::Fetch(string id)
 string Inventory::ItemList()
 {
 	string output;
-	for (auto it : inventory)
+	if (inventory.size() > 0)
 	{
-		output += it->GetShortDescription() + "\n";
+		for (auto it : inventory)
+		{
+			output += it->GetShortDescription() + "\n";
+		}
+	}
+	else
+	{
+		output = "There are no Items";
 	}
 	return output;
 }

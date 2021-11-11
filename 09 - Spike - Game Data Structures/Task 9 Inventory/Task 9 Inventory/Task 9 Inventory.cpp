@@ -79,7 +79,58 @@ void ItemTest()
 void InventoryTest()
 {
     Inventory in;
-    Item it({ "item 1", "an item" }, "item 1", "this is an item");
+    Item it1({ "item 1", "an item" }, "item 1", "this is an item");
+    Item it2({ "item 2", "an item" }, "item 2", "this is an item");
+
+    if (!in.HasItem("item 2"))
+    {
+        cout << "does not have the item" << endl;
+    }
+
+    cout << in.ItemList() << endl;
+
+    in.Put(&it1);
+
+    if (in.HasItem("item 1"))
+    {
+        cout << "it has the item we put in" << endl;
+    }
+    if (!in.HasItem("item 2"))
+    {
+        cout << "does not have the other item" << endl;
+    }
+
+    cout << in.ItemList() << endl;
+
+    in.Put(&it2);
+
+    if (in.HasItem("item 1"))
+    {
+        cout << "it has the item we put in" << endl;
+    }
+    if (in.HasItem("item 2"))
+    {
+        cout << "and it does have this one" << endl;
+    }
+
+    cout << in.ItemList() << endl;
+
+    cout << in.Fetch("item 1")->GetShortDescription() << endl;
+    cout << in.Fetch("item 2")->GetShortDescription() << endl;
+
+    in.Take("item 1");
+
+    if (!in.HasItem("item 1"))
+    {
+        cout << "we took this item out" << endl;
+    }
+    if (in.HasItem("item 2"))
+    {
+        cout << "and it does have this one" << endl;
+    }
+
+    cout << in.ItemList() << endl;
+
 }
 
 int main()
@@ -87,7 +138,7 @@ int main()
     identifiableObjectTest();
     GameObjectTest();
     ItemTest();
-
+    InventoryTest();
 
     cout << "finished!!" << endl;
 

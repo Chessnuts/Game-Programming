@@ -1,5 +1,9 @@
 #pragma once
-class Player
+#include "GameObject.h"
+
+using namespace std;
+
+class Player : public GameObject
 {
 public:
 	Player();
