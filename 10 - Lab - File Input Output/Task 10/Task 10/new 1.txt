@@ -1,0 +1,24 @@
+CREATE TABLE product 
+(
+
+);
+
+CREATE TABLE customer
+(
+
+);
+
+CREARE TABLE order
+(
+
+);
+
+CREATE TABLE user
+(
+	user_id INT PRIMARY KEY AUTO INCREMENT NOT NULL,
+	username VARCHAR(255) NOT NULL,
+	password VARCHAR(255) NOT NULL
+);
+
+#check varchar syntax
+############KILL ME 

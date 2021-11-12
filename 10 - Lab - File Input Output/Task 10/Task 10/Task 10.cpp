@@ -1,22 +1,14 @@
 
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
-class testClass
+struct Test
 {
-private:
     int anInt;
     char aChar;
     float aFloat;
-public:
-    testClass(int in, char ch, float fl) 
-    {
-        anInt = in;
-        aChar = ch;
-        aFloat = fl;
-    };
-    ~testClass() {};
 
     void ShowValues()
     {
@@ -31,11 +23,21 @@ int main()
     int in = 6;
     char ch = 'a';
     float fl = 2.2;
-    testClass myClass(in, ch, fl);
+    Test myData{ in, ch, fl };
 
-    myClass.ShowValues();
+    myData.ShowValues();
+
+    //open in write mode
+    fstream fs;
+    fs.open("test1.bin", fstream::out | fstream::binary);
+
+    //write data
+    fs << myData.anInt;
+    fs << myData.aChar;
+    fs << myData.aFloat;
+
+    //close file
+    fs.close();
 
     return 0;
 }
-
-
