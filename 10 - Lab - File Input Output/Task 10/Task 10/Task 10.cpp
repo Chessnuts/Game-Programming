@@ -33,6 +33,7 @@ int main()
     float fl = 2.2;
     testClass myClass(in, ch, fl);
 
+    myClass.ShowValues();
 
     return 0;
 }
