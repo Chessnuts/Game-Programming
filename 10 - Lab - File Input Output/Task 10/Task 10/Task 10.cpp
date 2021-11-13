@@ -4,6 +4,10 @@
 #include <string>
 #include <vector>
 #include <sstream>
+#include "json.hpp"
+
+// for convenience
+using json = nlohmann::json;
 
 using namespace std;
 
@@ -79,7 +83,7 @@ int main()
         fs.close();
     }
     
-    if (true)
+    if (false)
     {
         fstream fs;
         string str;
@@ -99,7 +103,26 @@ int main()
 
         fs.close();
     }
-    cout << "done" << endl;
+
+    if (true)
+    {
+        fstream fs;
+        
+        fs.open("test3.json", fstream::in);
+        json jf = json::parse(fs);
+
+
+        cout << "exp: " << jf["exp"] << endl;
+        cout << "health: " << jf["health"] << endl;
+        cout << "jsonType: " << jf["jsonType"] << endl;
+        cout << "level: " << jf["level"] << endl;
+        cout << "name: " << jf["name"] << endl;
+        cout << "uuid: " << jf["uuid"] << endl;
+
+        fs.close();
+    }
+
+    cout << endl << "done" << endl;
     
     return 0;
 };
