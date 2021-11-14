@@ -7,12 +7,23 @@
 #include "IdentifiableObject.h"
 #include "GameObject.h"
 #include "Location.h"
+#include "Player.h"
 
 
 
 using namespace std;
 
 bool running = true;
+
+void Update() 
+{
+
+}
+
+void Render()
+{
+
+}
 
 vector<string> split(string str, char splitter)
 {
@@ -91,6 +102,8 @@ int main(int argc, char* argv[])
     {
         cout << l.GetFullDescription() << endl;
     }
+
+    Player player({"Fred", "It's you!"});
 
     while (running)
     {

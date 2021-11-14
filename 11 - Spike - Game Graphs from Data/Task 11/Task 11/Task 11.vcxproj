@@ -142,12 +142,14 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="IdentifiableObject.cpp" />
     <ClCompile Include="Location.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Task 11.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="IdentifiableObject.h" />
     <ClInclude Include="Location.h" />
+    <ClInclude Include="Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

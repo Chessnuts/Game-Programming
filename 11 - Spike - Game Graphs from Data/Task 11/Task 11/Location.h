@@ -10,6 +10,7 @@ class Location : public GameObject
 private:
 	map<string, Location*> connections;
 public:
+	Location() {};
 	Location(vector<string> ids, string n, string d);
 	~Location() {};
 
