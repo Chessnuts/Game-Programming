@@ -8,6 +8,8 @@
 #include "GameObject.h"
 #include "Location.h"
 
+
+
 using namespace std;
 
 bool running = true;
@@ -30,14 +32,14 @@ vector<string> split(string str, char splitter)
     return result;
 }
 
-int main()
+int main(int argc, char* argv[])
 {
     fstream fs;
     string str;
 
     vector<Location> locations;
 
-    fs.open("Adventure.txt", fstream::in);
+    fs.open(argv[1], fstream::in);
 
     while (getline(fs, str))
     {
@@ -56,7 +58,7 @@ int main()
         cout << l.FirstId() << endl;
     }
 
-    fs.open("Adventure.txt", fstream::in);
+    fs.open(argv[1], fstream::in);
     int i = 0;
     while (getline(fs, str))
     {
@@ -90,7 +92,7 @@ int main()
         cout << l.GetFullDescription() << endl;
     }
 
-    while (!running)
+    while (running)
     {
 
     }
