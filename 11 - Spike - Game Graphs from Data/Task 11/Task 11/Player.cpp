@@ -8,10 +8,6 @@ Player::Player(string n, string d, Location l) : GameObject({ "me", "inventory" 
 	location = &l;
 }
 
-Location Player::GetLocation()
-{
-	return *location;
-}
 
 void Player::MoveTo(Location *l)
 {

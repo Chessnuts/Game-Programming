@@ -6,13 +6,10 @@ using namespace std;
 
 class Player : public GameObject
 {
-private:
-	Location *location;
 public:
 	Player(string n, string d, Location l);
 	~Player() {};
-
-	Location GetLocation();
+	Location* location;
 	void MoveTo(Location *l);
 };
 

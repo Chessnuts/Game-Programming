@@ -15,15 +15,7 @@ using namespace std;
 
 bool running = true;
 
-void Update() 
-{
 
-}
-
-void Render()
-{
-
-}
 
 vector<string> split(string str, char splitter)
 {
@@ -42,13 +34,43 @@ vector<string> split(string str, char splitter)
     }
     return result;
 }
+void Update(Player player) 
+{
+    string input;
+    cin >> input;
+
+    vector<string> command = split(input, ',');
+
+    if (command[0] == "go")
+    {
+        if (player.location->GetConnection(command[1]) != nullptr)
+        {
+            player.MoveTo(player.location->GetConnection(command[1]));
+        }
+    }
+    else if (command[0] == "quit")
+    {
+        running = false;
+    }
+}
+
+void Render(Player player)
+{
+    if (!running)
+    {
+        cout << "Quitting game" << endl;
+        return;
+    }
+
+    player.location->GetFullDescription();
+}
 
 int main(int argc, char* argv[])
 {
     fstream fs;
     string str;
 
-    vector<Location> locations;
+    vector<Location*> locations;
 
     fs.open(argv[1], fstream::in);
 
@@ -58,7 +80,7 @@ int main(int argc, char* argv[])
         {
             vector<string> details = split(str, '|');
 
-            locations.push_back(Location{split(details[1], ','), details[2], details[3]});
+            locations.push_back(new Location{split(details[1], ','), details[2], details[3]});
         }
     }
 
@@ -66,7 +88,7 @@ int main(int argc, char* argv[])
 
     for (auto l : locations)
     {
-        cout << l.FirstId() << endl;
+        cout << l->FirstId() << endl;
     }
 
     fs.open(argv[1], fstream::in);
@@ -82,11 +104,11 @@ int main(int argc, char* argv[])
                 {
                     vector<string> pair = split(s, ',');
 
-                    for (auto& l : locations)
+                    for (auto l : locations)
                     {
-                        if (l.AreYou(pair[1]))
+                        if (l->AreYou(pair[1]))
                         {
-                            locations[i].AddConnection(pair[0], &l);
+                            locations[i]->AddConnection(pair[0], l);
                         }
                     }
                 }
@@ -100,14 +122,25 @@ int main(int argc, char* argv[])
 
     for (auto l : locations)
     {
-        cout << l.GetFullDescription() << endl;
+        cout << l->GetFullDescription() << endl;
     }
 
-    Player player({"Fred", "It's you!"});
+    cout << "<< game test >>" << endl;
+
+
+    Player player({"Fred", "It's you!", *locations.at(0)});
+
+    player.location->GetFullDescription();
 
     while (running)
     {
+        Update(player);
+        Render(player);
+    }
 
+    for (auto l : locations)
+    {
+        delete l;
     }
 
     return 0;
