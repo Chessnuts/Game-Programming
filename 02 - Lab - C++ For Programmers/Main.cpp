@@ -81,7 +81,7 @@ void MethodFive()
 };
 
 /*
- Split the line of text, such as “this has spaces in it”, by spaces, and show each part to
+ Split the line of text, such as ï¿½this has spaces in itï¿½, by spaces, and show each part to
 screen.
 */
 void MethodSix()
@@ -92,9 +92,9 @@ void MethodSix()
 	vector<string> words{};
 
 	istringstream iss(s);
-	copy(std::istream_iterator<string>(iss),
-		std::istream_iterator<string>(),
-		std::ostream_iterator<string>(cout, "\n"));
+	copy(istream_iterator<string>(iss),
+		istream_iterator<string>(),
+		ostream_iterator<string>(cout, "\n"));
 
 };
 
