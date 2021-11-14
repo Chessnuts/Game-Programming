@@ -10,16 +10,26 @@ Location::Location(vector<string> ids, string n, string d) : GameObject(ids, n, 
 
 Location* Location::GetConnection(string direction)
 {
-	return connections[direction];
+	if (connections.count(direction))
+	{
+		return connections[direction];
+	}
+	return nullptr;
 }
 
 string Location::ConnectionList()
 {
 	string result = "You can move: \n";
-
-	for (const auto& l : connections)
+	if (connections.size() > 0)
 	{
-		result += "\t" + l.first + "\n";
+		for (const auto& l : connections)
+		{
+			result += "\t" + l.first + "\n";
+		}
+	}
+	else
+	{
+		result = "There is nowhere to go...";
 	}
 
 	return result;
@@ -32,5 +42,5 @@ void Location::AddConnection(string direction, Location *location)
 
 string Location::GetFullDescription()
 {
-	return "You are in " + GetName() + ".";
+	return "You are in " + GetName() + ". \n" + ConnectionList();
 }
