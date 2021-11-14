@@ -23,3 +23,8 @@ string GameObject::GetFullDescription()
 {
 	return description;
 }
+
+string GameObject::GetDescription()
+{
+	return description;
+}

@@ -24,7 +24,7 @@ string Location::ConnectionList()
 	{
 		for (const auto& l : connections)
 		{
-			result += "\t" + l.first + "\n";
+			result += "\t" + l.first + " : " + l.second->GetName() + "\n";
 		}
 	}
 	else
@@ -42,5 +42,5 @@ void Location::AddConnection(string direction, Location *location)
 
 string Location::GetFullDescription()
 {
-	return "You are in " + GetName() + ". \n" + ConnectionList();
+	return "You are in " + GetName() + ". " + GetDescription() + ". \n" + ConnectionList();
 }

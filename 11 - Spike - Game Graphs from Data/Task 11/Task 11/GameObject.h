@@ -12,6 +12,7 @@ public:
 	~GameObject() {};
 	string GetName();
 	string GetShortDescription();
+	string GetDescription();
 	string GetFullDescription();
 };
 
