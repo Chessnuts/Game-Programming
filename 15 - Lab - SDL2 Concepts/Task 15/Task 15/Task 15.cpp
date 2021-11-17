@@ -39,17 +39,34 @@ int main(int argc, char* args[])
         }
     }
     
+    //Event handler
+    SDL_Event e;
+
+
     while (running)
     {
-        // when r is pressed change to random colour
-        if (true) // if r is pressed 
+        //Handle events on queue
+        while (SDL_PollEvent(&e) != 0)
         {
-            SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format, rand() % 256, rand() % 256, rand() % 256));
-            SDL_UpdateWindowSurface(window);
+            //User requests quit
+            if (e.type == SDL_QUIT)
+            {
+                running = false;
+            }
+
+            //Get keydown
+            else if (e.type == SDL_KEYDOWN)
+            {
+                switch (e.key.keysym.sym)
+                {
+                    case SDLK_r:
+                        SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format, rand() % 256, rand() % 256, rand() % 256));
+                        
+                        SDL_UpdateWindowSurface(window); //it's just a demo and this is the only thing that's updated so no need to call update all the time
+                        break;
+                }
+            }
         }
-
-        //close in response to exit message
-
     }
 
     SDL_DestroyWindow(window);
