@@ -4,8 +4,58 @@
 
 using namespace std;
 
+const int WIDTH = 600;
+const int HEIGHT = 800;
+bool running = true;
+
 int main(int argc, char* args[])
 {
+    SDL_Window* window = NULL;
 
-	return 0;
+    SDL_Surface* screen = NULL;
+
+    if (SDL_Init(SDL_INIT_VIDEO) < 0)
+    {
+        printf("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
+    }
+
+    else
+    {
+        //Create window
+        window = SDL_CreateWindow("SDL DEMO", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
+        if (window == NULL)
+        {
+            printf("Window could not be created! SDL_Error: %s\n", SDL_GetError());
+        }
+        else
+        {
+            screen = SDL_GetWindowSurface(window);
+
+            //Fill the surface green
+            SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format, 0, 255, 26));
+
+            //Update the surface
+            SDL_UpdateWindowSurface(window);
+        }
+    }
+    
+    while (running)
+    {
+        // when r is pressed change to random colour
+        if (true) // if r is pressed 
+        {
+            SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format, rand() % 256, rand() % 256, rand() % 256));
+            SDL_UpdateWindowSurface(window);
+        }
+
+        //close in response to exit message
+
+    }
+
+    SDL_DestroyWindow(window);
+
+    //Quit SDL subsystems
+    SDL_Quit();
+
+    return 0;
 }
