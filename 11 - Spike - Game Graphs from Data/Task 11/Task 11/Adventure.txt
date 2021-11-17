@@ -8,7 +8,7 @@ L|hallway,starting room|Hallway|It is a dimly lit hallway
 C|North,empty room
 
 L|room,empty room|Empty Room|It is an empty room with a door on each of the four walls
-C|South,starting room|North, north room|East, east room|West, west room
+C|South,starting room|North,north room|East,east room|West,west room
 
 L|small room,north room|Small Room|There isn't much here
 C|South,empty room

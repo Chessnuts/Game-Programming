@@ -35,7 +35,7 @@ string Location::ConnectionList()
 	return result;
 }
 
-void Location::AddConnection(string direction, Location *location)
+void Location::AddConnection(string direction, Location* location)
 {
 	connections.insert(make_pair(direction, location));
 }
