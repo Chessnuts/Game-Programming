@@ -140,11 +140,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="About.cpp" />
+    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Gameplay.cpp" />
     <ClCompile Include="HallOfFame.cpp" />
     <ClCompile Include="Help.cpp" />
+    <ClCompile Include="IdentifiableObject.cpp" />
+    <ClCompile Include="Location.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="PlayAdventure.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Quit.cpp" />
     <ClCompile Include="QuitGame.cpp" />
     <ClCompile Include="State.cpp" />
@@ -154,11 +158,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="About.h" />
+    <ClInclude Include="GameObject.h" />
     <ClInclude Include="Gameplay.h" />
     <ClInclude Include="HallOfFame.h" />
     <ClInclude Include="Help.h" />
+    <ClInclude Include="IdentifiableObject.h" />
+    <ClInclude Include="Location.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="PlayAdventure.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Quit.h" />
     <ClInclude Include="QuitGame.h" />
     <ClInclude Include="State.h" />
