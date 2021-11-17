@@ -7,6 +7,7 @@ using namespace std;
 class Player : public GameObject
 {
 public:
+	Player() {};
 	Player(string n, string d, Location& l);
 	~Player() {};
 	Location* location;
