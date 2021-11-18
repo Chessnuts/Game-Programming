@@ -1,0 +1,20 @@
+# comment :)
+# L specifies a location
+# C specifies a list of connections and directions
+# the connection list should be underneath the location as the file will be read in order
+# every room should have at least 1 unique identifier to specify which rooms connect to it
+
+L|hallway,starting room|Hallway|It is a dimly lit hallway
+C|North,empty room
+
+L|room,empty room|Empty Room|It is an empty room with a door on each of the four walls
+C|South,starting room|North,north room|East,east room|West,west room
+
+L|small room,north room|Small Room|There isn't much here
+C|South,empty room
+
+L|small room,east room|Small Room|There isn't much here
+C|West,empty room
+
+L|small room,west room|Small Room|There isn't much here
+C|East,empty room
