@@ -145,6 +145,8 @@
     <ClCompile Include="HallOfFame.cpp" />
     <ClCompile Include="Help.cpp" />
     <ClCompile Include="IdentifiableObject.cpp" />
+    <ClCompile Include="Inventory.cpp" />
+    <ClCompile Include="Item.cpp" />
     <ClCompile Include="Location.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="PlayAdventure.cpp" />
@@ -163,6 +165,8 @@
     <ClInclude Include="HallOfFame.h" />
     <ClInclude Include="Help.h" />
     <ClInclude Include="IdentifiableObject.h" />
+    <ClInclude Include="Inventory.h" />
+    <ClInclude Include="Item.h" />
     <ClInclude Include="Location.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="PlayAdventure.h" />
