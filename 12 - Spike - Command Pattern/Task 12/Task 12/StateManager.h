@@ -5,7 +5,6 @@
 #include "states.h"
 #include "Help.h"
 #include "PlayAdventure.h"
-#include "Gameplay.h"
 #include "Quit.h"
 #include "HallOfFame.h"
 #include "About.h"
@@ -20,7 +19,6 @@ private:
 	Welcome welcome;
 	MainMenu mainMenu;
 	PlayAdventure playGame;
-	Gameplay gameplay;
 	Help help;
 	HallOfFame hallOfFame;
 	About about;

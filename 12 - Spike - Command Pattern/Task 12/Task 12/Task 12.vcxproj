@@ -141,7 +141,6 @@
   <ItemGroup>
     <ClCompile Include="About.cpp" />
     <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="Gameplay.cpp" />
     <ClCompile Include="HallOfFame.cpp" />
     <ClCompile Include="Help.cpp" />
     <ClCompile Include="IdentifiableObject.cpp" />
@@ -159,7 +158,6 @@
   <ItemGroup>
     <ClInclude Include="About.h" />
     <ClInclude Include="GameObject.h" />
-    <ClInclude Include="Gameplay.h" />
     <ClInclude Include="HallOfFame.h" />
     <ClInclude Include="Help.h" />
     <ClInclude Include="IdentifiableObject.h" />
