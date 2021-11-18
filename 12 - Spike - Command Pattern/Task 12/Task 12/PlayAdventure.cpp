@@ -27,7 +27,7 @@ vector<string> split(string str, char splitter)
 
 void PlayAdventure::LoadAdventure(string fileName)
 {
-    if (locations.size() > 0)
+    if (!locations.empty())
     {
         locations.clear();
     }
@@ -46,6 +46,14 @@ void PlayAdventure::LoadAdventure(string fileName)
 
             locations.push_back(Location{ split(details[1], ','), details[2], details[3] });
         }
+        if ((str.size() != 0) && (str.at(0) == 'E'))
+        {
+            if (!locations.empty())
+            {
+                vector<string> details = split(str, '|');
+                locations.back().entities.push_back(Entity{ split(details[1], ','), details[2], details[3] });
+            }
+        }
     }
 
     fs.close();
@@ -55,25 +63,27 @@ void PlayAdventure::LoadAdventure(string fileName)
     int i = 0;
     while (getline(fs, str))
     {
-
-        if ((str.size() != 0) && (str.at(0) == 'C'))
+        if (!locations.empty())
         {
-            for (auto s : split(str, '|'))
+            if ((str.size() != 0) && (str.at(0) == 'C'))
             {
-                if (s != "C")
+                for (auto s : split(str, '|'))
                 {
-                    vector<string> pair = split(s, ',');
-
-                    for (auto& l : locations)
+                    if (s != "C")
                     {
-                        if (l.AreYou(pair[1]))
+                        vector<string> pair = split(s, ',');
+
+                        for (auto& l : locations)
                         {
-                            locations[i].AddConnection(pair[0], &l);
+                            if (l.AreYou(pair[1]))
+                            {
+                                locations[i].AddConnection(pair[0], &l);
+                            }
                         }
                     }
                 }
+                i++;
             }
-            i++;
         }
     }
 
