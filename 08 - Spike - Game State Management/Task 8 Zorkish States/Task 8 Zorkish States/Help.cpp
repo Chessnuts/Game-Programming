@@ -30,6 +30,6 @@ void Help::Render()
 	cout << "\t" << "look in _" << endl;
 	cout << "\t" << "take _ (from _)" << endl;
 	cout << "\t" << "drop _" << endl;
-	cout << "\t" << "attack _ (with _)" << endl;
+	cout << "\t" << "attack _ (with _)" << endl << endl;
 	cout << "Press Enter to return to the Main Menu" << endl;
 }
