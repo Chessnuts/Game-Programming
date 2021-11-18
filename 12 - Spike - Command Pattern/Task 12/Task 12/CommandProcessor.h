@@ -2,6 +2,8 @@
 #include "LookCommand.h"
 #include "GoCommand.h"
 #include "HelpCommand.h"
+#include "InventoryCommand.h"
+#include "DebugCommand.h"
 #include <string>
 #include <vector>
 #include <iostream>
@@ -15,6 +17,8 @@ private:
 	LookCommand look;
 	GoCommand go;
 	HelpCommand help;
+	DebugCommand debug;
+	InventoryCommand inventory;
 
 	vector<Command*> commands;
 	//map<string, vector<string>> aliases;

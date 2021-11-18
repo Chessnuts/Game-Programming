@@ -140,7 +140,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="About.cpp" />
-    <ClCompile Include="AliasCommand.cpp" />
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="CommandProcessor.cpp" />
     <ClCompile Include="DebugCommand.cpp" />
@@ -168,7 +167,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="About.h" />
-    <ClInclude Include="AliasCommand.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="CommandProcessor.h" />
     <ClInclude Include="DebugCommand.h" />

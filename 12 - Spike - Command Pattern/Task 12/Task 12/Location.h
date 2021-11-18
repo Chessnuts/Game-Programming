@@ -8,9 +8,8 @@ using namespace std;
 
 class Location : public GameObject
 {
-private:
-	map<string, Location*> connections;
 public:
+	map<string, Location*> connections;
 	vector<Entity> entities;
 
 	Location() {};

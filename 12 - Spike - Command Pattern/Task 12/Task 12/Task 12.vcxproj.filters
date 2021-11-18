@@ -87,9 +87,6 @@
     <ClCompile Include="DebugCommand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="AliasCommand.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="InventoryCommand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -165,9 +162,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DebugCommand.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AliasCommand.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="InventoryCommand.h">

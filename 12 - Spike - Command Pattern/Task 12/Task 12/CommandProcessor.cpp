@@ -5,13 +5,17 @@ CommandProcessor::CommandProcessor()
 	go = GoCommand({ "go", "move" });
 	look = LookCommand({ "look", "inspect" });
 	help = HelpCommand({ "help", "?" });
+	debug = DebugCommand({ "debug" });
+	inventory = InventoryCommand({ "inventory" });
 
 	commands.push_back(&go);
 	commands.push_back(&look);
 	commands.push_back(&help);
+	commands.push_back(&debug);
+	commands.push_back(&inventory);
 
 	vector<string> inv = { "look", "at", "inventory" };
-	aliases.insert(make_pair("inventory", inv));
+	//aliases.insert(make_pair("inventory", inv));
 }
 
 string CommandProcessor::Execute(vector<string> input, Location* location, Player* player)
@@ -24,6 +28,25 @@ string CommandProcessor::Execute(vector<string> input, Location* location, Playe
 			{
 				return c->Execute(input, location, player);
 			}
+		}
+		if (input.at(0) == "alias")
+		{
+			if (input.size() > 1)
+			{
+				for (auto c : commands)
+				{
+					if (c->AreYou(input.at(1)))
+					{
+						if (input.size() > 2)
+						{
+							c->AddIdentifier(input.at(2));
+							return "alias added.";
+						}
+						return "Please specify command for alias " + input.at(1);
+					}
+				}
+			}
+			return "Please specify alias and command";
 		}
 		/*
 		if(input.at(0) == "alias")
