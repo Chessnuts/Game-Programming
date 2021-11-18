@@ -1,0 +1,29 @@
+# comment :)
+# L specifies a location
+# C specifies a list of connections and directions
+# the connection list should be underneath the location as the file will be read in order
+# every room should have at least 1 unique identifier to specify which rooms connect to it
+
+L|hallway,starting room|Hallway|It is a dimly lit hallway
+E|torch|Torch|it's a torch sitting on the wall
+C|north,empty room
+
+L|room,empty room|Empty Room|It is an empty room with a door on each of the four walls
+C|south,starting room|north,north room|east,east room|west,west room
+
+L|small room,north room|Small Room|There isn't much here
+E|flower patch,flowers|Flower patch|It's a small patch of flowers
+E|broken ladder,ladder|Broken ladder|It's a broken ladder
+C|south,empty room
+
+L|small room,east room|Small Room|There isn't much here
+E|flower patch,flowers|Flower patch|It's a small patch of flowers
+E|rock,stone|Stone|It's a small stone|takeable,throwable
+E|chest|Chest|It's a chest, what could be inside|searchable|I|thing:Thing:It's a um thing i guess:takeable
+E|torch|Torch|it's a torch sitting on the wall
+C|west,empty room
+
+L|small room,west room|Small Room|There isn't much here
+E|torch|Torch|it's a torch sitting on the wall
+E|troll|Troll|A giant fearsome creature|health|I|gem:Gem:It's a bright gem:takeable/thing:Thing:It's a um thing i guess:takeable/rock,stone:Stone:It's a small stone:takeable,throwable
+C|east,empty room
