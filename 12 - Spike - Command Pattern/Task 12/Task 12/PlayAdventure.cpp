@@ -5,6 +5,8 @@
 #include "Player.h"
 #include <sstream>
 #include <fstream>
+#include <algorithm>
+
 using namespace std;
 
 vector<string> split(string str, char splitter)
@@ -119,28 +121,14 @@ void PlayAdventure::Update()
     {
         string input;
 
+        transform(input.begin(), input.end(), input.begin(), ::tolower);
+
         getline(cin, input);
 
         vector<string> command = split(input, ' ');
+        
 
-        if (command.at(0) == "go")
-        {
-            //cout << "go command" << endl;
-            //for (auto s : command)
-            //{
-            //    cout << s << endl;
-            //}
-            if (command.size() > 1)
-            {
-                //cout << "argument found" << endl;
-                if (player.location->GetConnection(command.at(1)) != nullptr)
-                {
-                    cout << "moving to : " << player.location->GetConnection(command.at(1))->GetName() << endl;
-                    player.MoveTo(player.location->GetConnection(command.at(1)));
-                }
-            }
-        }
-        else if (command.at(0) == "quit")
+        if (command.at(0) == "quit")
         {
             loaded = false;
             state = STATES::QUIT;

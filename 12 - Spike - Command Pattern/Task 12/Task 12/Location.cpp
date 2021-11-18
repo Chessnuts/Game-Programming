@@ -66,7 +66,7 @@ string Location::GetFullDescription()
 
 string Location::GetShortDescription()
 {
-	return GameObject::GetShortDescription();
+	return "You are in " + GetName() + ". ";
 }
 
 string Location::GetDescription()

@@ -6,22 +6,22 @@
 
 L|hallway,starting room|Hallway|It is a dimly lit hallway
 E|torch|Torch|it's a torch sitting on the wall
-C|North,empty room
+C|north,empty room
 
 L|room,empty room|Empty Room|It is an empty room with a door on each of the four walls
-C|South,starting room|North,north room|East,east room|West,west room
+C|south,starting room|north,north room|east,east room|west,west room
 
 L|small room,north room|Small Room|There isn't much here
 E|flower patch,flowers|Flower patch|It's a small patch of flowers
 E|broken ladder,ladder|Broken ladder|It's a broken ladder
-C|South,empty room
+C|south,empty room
 
 L|small room,east room|Small Room|There isn't much here
 E|flower patch,flowers|Flower patch|It's a small patch of flowers
 E|rock,stone|Stone|It's a stone sitting in the middle of the room
 E|torch|Torch|it's a torch sitting on the wall
-C|West,empty room
+C|west,empty room
 
 L|small room,west room|Small Room|There isn't much here
 E|torch|Torch|it's a torch sitting on the wall
-C|East,empty room
+C|east,empty room

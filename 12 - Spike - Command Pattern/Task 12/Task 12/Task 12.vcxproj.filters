@@ -87,7 +87,7 @@
     <ClCompile Include="AliasCommand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DebugTreeCommand.cpp">
+    <ClCompile Include="DebugCommand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -164,7 +164,7 @@
     <ClInclude Include="AliasCommand.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DebugTreeCommand.h">
+    <ClInclude Include="DebugCommand.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
