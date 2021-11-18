@@ -3,8 +3,9 @@
 class LookCommand : public Command
 {
 public:
+	LookCommand() {};
 	LookCommand(vector<string> ids);
-	~LookCommand();
+	~LookCommand() {};
 
 	string Execute(vector<string> input, Location* location, Player* player) override;
 };

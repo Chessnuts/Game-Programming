@@ -5,7 +5,7 @@ GoCommand::GoCommand(vector<string> ids) : Command(ids)
 
 }
 
-string Execute(vector<string> input, Location* location, Player* player)
+string GoCommand::Execute(vector<string> input, Location* location, Player* player)
 {
     if (input.size() > 1)
     {

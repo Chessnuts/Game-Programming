@@ -8,7 +8,7 @@ LookCommand::LookCommand(vector<string> ids) : Command(ids)
 	
 }
 
-string Execute(vector<string> input, Location* location, Player* player)
+string LookCommand::Execute(vector<string> input, Location* location, Player* player)
 {
 	if (input.size() > 1 && input.at(1) == "at")
 	{

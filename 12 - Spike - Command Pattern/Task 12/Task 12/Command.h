@@ -5,6 +5,8 @@
 #include <string>
 #include <vector>
 
+using namespace std;
+
 class Command : public IdentifiableObject
 {
 public:
@@ -12,6 +14,6 @@ public:
 	Command(vector<string> ids);
 	~Command() {};
 
-	virtual string Execute(vector<string> input, Location* location, Player* player) {};
+	virtual string Execute(vector<string> input, Location* location, Player* player) = 0;
 };
 

@@ -133,6 +133,10 @@ void PlayAdventure::Update()
             loaded = false;
             state = STATES::QUIT;
         }
+        else
+        {
+            cout << commandProcessor.Execute(command, player.location, &player) << endl;
+        }
     }
     
 }

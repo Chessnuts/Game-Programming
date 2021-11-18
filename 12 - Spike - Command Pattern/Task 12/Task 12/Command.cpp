@@ -4,3 +4,4 @@ Command::Command(vector<string> ids) : IdentifiableObject(ids)
 {
 
 }
+

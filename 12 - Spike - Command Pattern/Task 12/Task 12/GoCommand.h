@@ -3,8 +3,9 @@
 class GoCommand : public Command
 {
 public:
+	GoCommand() {};
 	GoCommand(vector<string> ids);
-	~GoCommand();
+	~GoCommand() {};
 
 	string Execute(vector<string> input, Location* location, Player* player) override;
 };

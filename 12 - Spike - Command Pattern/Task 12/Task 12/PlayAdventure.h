@@ -5,6 +5,7 @@
 #include "Player.h"
 #include "Location.h"
 #include "string"
+#include "CommandProcessor.h"
 
 extern STATES state;
 
@@ -14,6 +15,7 @@ private:
 	bool loaded = false;
 	Player player;
 	vector<Location> locations;
+	CommandProcessor commandProcessor;
 public:
 	PlayAdventure() {};
 	virtual ~PlayAdventure() {};
