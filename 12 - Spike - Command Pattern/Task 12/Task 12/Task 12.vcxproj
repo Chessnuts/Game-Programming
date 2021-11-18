@@ -140,14 +140,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="About.cpp" />
+    <ClCompile Include="AliasCommand.cpp" />
+    <ClCompile Include="Command.cpp" />
+    <ClCompile Include="CommandProcessor.cpp" />
+    <ClCompile Include="DebugTreeCommand.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="GoCommand.cpp" />
     <ClCompile Include="HallOfFame.cpp" />
     <ClCompile Include="Help.cpp" />
+    <ClCompile Include="HelpCommand.cpp" />
     <ClCompile Include="IdentifiableObject.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="Location.cpp" />
+    <ClCompile Include="LookCommand.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="PlayAdventure.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -160,14 +167,21 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="About.h" />
+    <ClInclude Include="AliasCommand.h" />
+    <ClInclude Include="Command.h" />
+    <ClInclude Include="CommandProcessor.h" />
+    <ClInclude Include="DebugTreeCommand.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GoCommand.h" />
     <ClInclude Include="HallOfFame.h" />
     <ClInclude Include="Help.h" />
+    <ClInclude Include="HelpCommand.h" />
     <ClInclude Include="IdentifiableObject.h" />
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="Location.h" />
+    <ClInclude Include="LookCommand.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="PlayAdventure.h" />
     <ClInclude Include="Player.h" />
