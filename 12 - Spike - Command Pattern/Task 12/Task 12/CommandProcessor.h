@@ -1,6 +1,7 @@
 #pragma once
 #include "LookCommand.h"
 #include "GoCommand.h"
+#include "HelpCommand.h"
 #include <string>
 #include <vector>
 #include <iostream>
@@ -13,8 +14,10 @@ class CommandProcessor
 private:
 	LookCommand look;
 	GoCommand go;
+	HelpCommand help;
+
 	vector<Command*> commands;
-	map<string, vector<string>> aliases;
+	//map<string, vector<string>> aliases;
 
 public:
 	CommandProcessor();

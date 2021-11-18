@@ -151,6 +151,6 @@ void PlayAdventure::Render()
     }
     else
     {
-        cout << player.location->GetFullDescription() << endl;
+        cout << endl << player.location->GetFullDescription() << endl;
     }
 }

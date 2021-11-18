@@ -26,5 +26,5 @@ string Player::GetDescription()
 
 string Player::GetFullDescription()
 {
-	return GameObject::GetFullDescription();
+	return GetDescription() + "\n You are carrying: \n" + inventory.ItemList();
 }

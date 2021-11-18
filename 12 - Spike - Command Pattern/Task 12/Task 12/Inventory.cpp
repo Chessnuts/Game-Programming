@@ -57,12 +57,12 @@ string Inventory::ItemList()
 	{
 		for (auto it : inventory)
 		{
-			output += it->GetShortDescription() + "\n";
+			output += "\t" + it->GetShortDescription() + "\n";
 		}
 	}
 	else
 	{
-		output = "There are no Items";
+		output = "\t There are no Items";
 	}
 	return output;
 }

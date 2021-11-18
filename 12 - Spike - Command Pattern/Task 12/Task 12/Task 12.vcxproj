@@ -152,6 +152,7 @@
     <ClCompile Include="HelpCommand.cpp" />
     <ClCompile Include="IdentifiableObject.cpp" />
     <ClCompile Include="Inventory.cpp" />
+    <ClCompile Include="InventoryCommand.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="Location.cpp" />
     <ClCompile Include="LookCommand.cpp" />
@@ -179,6 +180,7 @@
     <ClInclude Include="HelpCommand.h" />
     <ClInclude Include="IdentifiableObject.h" />
     <ClInclude Include="Inventory.h" />
+    <ClInclude Include="InventoryCommand.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="Location.h" />
     <ClInclude Include="LookCommand.h" />

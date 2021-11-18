@@ -84,10 +84,13 @@
     <ClCompile Include="LookCommand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DebugCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="AliasCommand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DebugCommand.cpp">
+    <ClCompile Include="InventoryCommand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -161,10 +164,13 @@
     <ClInclude Include="LookCommand.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DebugCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="AliasCommand.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DebugCommand.h">
+    <ClInclude Include="InventoryCommand.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
