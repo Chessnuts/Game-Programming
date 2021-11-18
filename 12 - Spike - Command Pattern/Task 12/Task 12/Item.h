@@ -12,4 +12,7 @@ public:
 	Item(vector<string> ids, string n, string d);
 	~Item() {};
 
+	string GetShortDescription() override;
+	string GetDescription() override;
+	string GetFullDescription() override;
 };

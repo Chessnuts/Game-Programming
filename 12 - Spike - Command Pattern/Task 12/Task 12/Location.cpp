@@ -1,5 +1,6 @@
 #include "Location.h"
 #include <iostream>
+#include "Entity.h"
 
 using namespace std;
 
@@ -24,12 +25,30 @@ string Location::ConnectionList()
 	{
 		for (const auto& l : connections)
 		{
-			result += "\t" + l.first + " : " + l.second->GetName() + "\n";
+			result += "\t" + l.first + "\n";
 		}
 	}
 	else
 	{
-		result = "There is nowhere to go...";
+		result = "There is nowhere to go... \n";
+	}
+
+	return result;
+}
+
+string Location::EntityList()
+{
+	string result = "You can see: \n";
+	if (entities.size() > 0)
+	{
+		for (auto e : entities)
+		{
+			result += "\t" + e.GetShortDescription() + "\n";
+		}
+	}
+	else
+	{
+		result += "Nothing... \n";
 	}
 
 	return result;
@@ -42,5 +61,15 @@ void Location::AddConnection(string direction, Location* location)
 
 string Location::GetFullDescription()
 {
-	return "You are in " + GetName() + ". " + GetDescription() + ". \n" + ConnectionList();
+	return "You are in " + GetName() + ". " + GetDescription() + ". \n" + ConnectionList() + "\n" + EntityList();
+}
+
+string Location::GetShortDescription()
+{
+	return GameObject::GetShortDescription();
+}
+
+string Location::GetDescription()
+{
+	return GameObject::GetDescription();
 }

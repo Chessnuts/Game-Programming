@@ -50,11 +50,6 @@ void PlayAdventure::LoadAdventure(string fileName)
 
     fs.close();
 
-    for (auto l : locations)
-    {
-        cout << l.FirstId() << endl;
-    }
-
     //Get Location Connections
     fs.open(fileName, fstream::in);
     int i = 0;
@@ -78,7 +73,6 @@ void PlayAdventure::LoadAdventure(string fileName)
                     }
                 }
             }
-            cout << i << endl;
             i++;
         }
     }

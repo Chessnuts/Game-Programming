@@ -11,8 +11,8 @@ public:
 	GameObject(vector<string> ids, string n, string d);
 	~GameObject() {};
 	string GetName();
-	string GetShortDescription();
-	string GetDescription();
-	string GetFullDescription();
+	virtual string GetShortDescription();
+	virtual string GetDescription();
+	virtual string GetFullDescription();
 };
 
