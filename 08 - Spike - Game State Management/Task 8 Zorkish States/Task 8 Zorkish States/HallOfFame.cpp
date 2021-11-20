@@ -9,7 +9,19 @@ void HallOfFame::Update()
 {
 	char input = _getch();
 
-	state = STATES::MAIN_MENU;
+	switch (input)
+	{
+	case '1':
+		state = STATES::NEWHIGHSCORE;
+		break;
+
+	case '2':
+		state = STATES::MAIN_MENU;
+		break;
+
+	default:
+		cout << "Try again" << endl;
+	}
 }
 
 void HallOfFame::Render()
@@ -27,5 +39,8 @@ void HallOfFame::Render()
 	cout << "\t" << "8. Harold, Mountain World, 500" << endl;
 	cout << "\t" << "9. Julie, Water World, 300" << endl;
 	cout << "\t" << "10. Bill, Box World, -5" << endl << endl;
-	cout << "Press Enter to return to the Main Menu" << endl;
+	cout << "--------------------------------------------------------" << endl << endl;
+	cout << "\t" << "Select:" << endl;
+	cout << "\t" << "1. Enter new high score" << endl;
+	cout << "\t" << "2. Return to main menu" << endl;
 }

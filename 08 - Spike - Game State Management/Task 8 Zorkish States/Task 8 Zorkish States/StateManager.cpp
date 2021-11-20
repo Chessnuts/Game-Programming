@@ -28,6 +28,10 @@ State* StateManager::Current()
 	{
 		current = &hallOfFame;
 	}
+	else if (state == STATES::NEWHIGHSCORE)
+	{
+		current = &newHighScore;
+	}
 	else if (state == STATES::ABOUT)
 	{
 		current = &about;
@@ -35,6 +39,10 @@ State* StateManager::Current()
 	else if (state == STATES::HELP)
 	{
 		current = &help;
+	}
+	else if (state == STATES::QUIT)
+	{
+		current = &quit;
 	}
 	else if (state == STATES::QUITGAME)
 	{

@@ -4,6 +4,8 @@
 #include "HelpCommand.h"
 #include "InventoryCommand.h"
 #include "DebugCommand.h"
+#include "AliasCommand.h"
+#include "QuitCommand.h"
 #include <string>
 #include <vector>
 #include <iostream>
@@ -19,12 +21,15 @@ private:
 	HelpCommand help;
 	DebugCommand debug;
 	InventoryCommand inventory;
-
+	AliasCommand alias;
+	QuitCommand quit;
 	vector<Command*> commands;
 	//map<string, vector<string>> aliases;
 
 public:
-	CommandProcessor();
+
+	CommandProcessor(bool*l);
+	CommandProcessor() {};
 	~CommandProcessor() {};
 
 	string Execute(vector<string> input, Location* location, Player* player);

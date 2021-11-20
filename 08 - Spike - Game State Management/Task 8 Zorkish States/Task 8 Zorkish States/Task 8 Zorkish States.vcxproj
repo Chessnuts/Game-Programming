@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="About.cpp" />
+    <ClCompile Include="NewHighScore.cpp" />
     <ClCompile Include="QuitGame.cpp" />
     <ClCompile Include="Gameplay.cpp" />
     <ClCompile Include="HallOfFame.cpp" />
@@ -154,6 +155,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="About.h" />
+    <ClInclude Include="NewHighScore.h" />
     <ClInclude Include="QuitGame.h" />
     <ClInclude Include="Gameplay.h" />
     <ClInclude Include="HallOfFame.h" />

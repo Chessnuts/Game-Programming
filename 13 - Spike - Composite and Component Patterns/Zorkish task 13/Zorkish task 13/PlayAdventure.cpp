@@ -62,13 +62,20 @@ void PlayAdventure::LoadAdventure(string fileName)
                         for (auto i : items)
                         {
                             vector<string> d = split(str, ':');
-                            locations.back().entities.back().Put(new Entity{ split(d[1], ','), d[2], d[3],  split(d[4], ',') });
+                            if (d.size() > 3)
+                            {
+                                locations.back().entities.back().Put(new Entity{ split(d[0], ','), d[1], d[2],  split(d[3], ',') });
+                            }
+                            else
+                            {
+                                locations.back().entities.back().Put(new Entity{ split(d[0], ','), d[1], d[2],  {" "} });
+                            }
                         }
                     }
                 }
                 else
                 {
-                    locations.back().entities.emplace_back(Entity{ split(details[1], ','), details[2], details[3] });
+                    locations.back().entities.emplace_back(Entity{ split(details[1], ','), details[2], details[3], {" "} });
                 }
             }
         }

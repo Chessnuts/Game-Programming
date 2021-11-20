@@ -35,6 +35,7 @@ vector<string> split(string str, char splitter)
     }
     return result;
 }
+
 void Update(Player &player) 
 {
     string input;
@@ -84,6 +85,7 @@ int main(int argc, char* argv[])
 
     fs.open(argv[1], fstream::in);
 
+    //load loactions
     while (getline(fs, str))
     {
         if ((str.size() != 0) && (str.at(0) == 'L'))
@@ -101,6 +103,7 @@ int main(int argc, char* argv[])
         cout << l.FirstId() << endl;
     }
 
+    //load connections
     fs.open(argv[1], fstream::in);
     int i = 0;
     while (getline(fs, str))
@@ -123,7 +126,7 @@ int main(int argc, char* argv[])
                     }
                 }
             }
-            cout << i << endl;
+            //cout << i << endl;
             i++;
         }
     }

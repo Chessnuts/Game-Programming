@@ -18,6 +18,7 @@ private:
 
 public:
 	World();
+	~World() {};
 	Coordinates GetStart();
 	string GetPoint(Coordinates c);
 	bool CheckNorth(Coordinates c);

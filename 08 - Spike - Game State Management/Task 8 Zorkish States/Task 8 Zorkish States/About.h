@@ -9,7 +9,7 @@ class About : public State
 {
 public:
 	About() {};
-	virtual ~About() {};
+	~About() {};
 	void Update() override;
 	void Render() override;
 };

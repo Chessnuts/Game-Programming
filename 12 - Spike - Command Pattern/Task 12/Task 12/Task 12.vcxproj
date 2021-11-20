@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="About.cpp" />
+    <ClCompile Include="AliasCommand.cpp" />
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="CommandProcessor.cpp" />
     <ClCompile Include="DebugCommand.cpp" />
@@ -159,6 +160,7 @@
     <ClCompile Include="PlayAdventure.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Quit.cpp" />
+    <ClCompile Include="QuitCommand.cpp" />
     <ClCompile Include="QuitGame.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="StateManager.cpp" />
@@ -167,6 +169,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="About.h" />
+    <ClInclude Include="AliasCommand.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="CommandProcessor.h" />
     <ClInclude Include="DebugCommand.h" />
@@ -186,6 +189,7 @@
     <ClInclude Include="PlayAdventure.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Quit.h" />
+    <ClInclude Include="QuitCommand.h" />
     <ClInclude Include="QuitGame.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateManager.h" />

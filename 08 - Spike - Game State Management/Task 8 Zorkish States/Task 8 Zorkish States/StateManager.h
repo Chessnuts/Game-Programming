@@ -10,6 +10,7 @@
 #include "HallOfFame.h"
 #include "About.h"
 #include "QuitGame.h"
+#include "NewHighScore.h"
 
 extern STATES state;
 
@@ -26,6 +27,7 @@ private:
 	About about;
 	Quit quit;
 	QuitGame quitGame;
+	NewHighScore newHighScore;
 
 	State* current;
 	bool running = true;

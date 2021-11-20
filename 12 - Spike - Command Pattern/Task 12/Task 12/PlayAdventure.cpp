@@ -126,17 +126,8 @@ void PlayAdventure::Update()
         getline(cin, input);
 
         vector<string> command = split(input, ' ');
-        
 
-        if (command.at(0) == "quit")
-        {
-            loaded = false;
-            state = STATES::QUIT;
-        }
-        else
-        {
-            cout << commandProcessor.Execute(command, player.location, &player) << endl;
-        }
+        cout << commandProcessor.Execute(command, player.location, &player) << endl;
     }
     
 }

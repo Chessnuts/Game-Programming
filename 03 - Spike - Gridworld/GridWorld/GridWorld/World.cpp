@@ -31,10 +31,28 @@ World::World()
 
 Coordinates World::GetStart()
 {
-	//change this later to check the map for the starting point but for now  just give the hardcoded start
+	//change this later to check the map for the starting point but for now  just give the hardcoded start 
+	//done now searches
+
 	Coordinates c;
-	c.x = 2;
-	c.y = 1;
+
+	//default start
+	c.x = 0;
+	c.y = 0;
+
+	Coordinates tc;
+	for (int i = 0; i <= 7; i++)
+	{
+		tc.x = i;
+		for (int j = 0; j <= 8; j++)
+		{
+			tc.y = j;
+			if (GetPoint(tc) == "S")
+			{
+				c = tc;
+			}
+		}
+	}
 	return c;
 }
 

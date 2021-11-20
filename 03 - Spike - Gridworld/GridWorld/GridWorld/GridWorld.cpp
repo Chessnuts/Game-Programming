@@ -25,7 +25,7 @@ void Update(string input, World world, Player& player, bool& validAction)
 	case 'N' :
 		if (world.CheckNorth(player.GetCoords())) 
 		{
-			cout << "you moved north" << endl;
+			//cout << "you moved north" << endl;
 			player.MoveNorth();
 			validAction = true;
 		}
@@ -35,7 +35,7 @@ void Update(string input, World world, Player& player, bool& validAction)
 	case 'S' :
 		if (world.CheckSouth(player.GetCoords()))
 		{
-			cout << "you moved south" << endl;
+			//cout << "you moved south" << endl;
 			player.MoveSouth();
 			validAction = true;
 		}
@@ -45,7 +45,7 @@ void Update(string input, World world, Player& player, bool& validAction)
 	case 'E' :
 		if (world.CheckEast(player.GetCoords()))
 		{
-			cout << "you moved east" << endl;
+			//cout << "you moved east" << endl;
 			player.MoveEast();
 			validAction = true;
 		}
@@ -55,7 +55,7 @@ void Update(string input, World world, Player& player, bool& validAction)
 	case 'W' :
 		if (world.CheckWest(player.GetCoords()))
 		{
-			cout << "you moved west" << endl;
+			//cout << "you moved west" << endl;
 			player.MoveWest();
 			validAction = true;
 		}

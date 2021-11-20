@@ -15,7 +15,7 @@ private:
 	bool loaded = false;
 	Player player;
 	vector<Location> locations;
-	CommandProcessor commandProcessor;
+	CommandProcessor commandProcessor = CommandProcessor(&loaded);
 public:
 	PlayAdventure() {};
 	virtual ~PlayAdventure() {};

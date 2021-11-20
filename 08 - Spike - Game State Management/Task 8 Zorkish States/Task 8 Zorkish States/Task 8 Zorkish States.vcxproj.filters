@@ -51,12 +51,12 @@
     <ClCompile Include="QuitGame.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="NewHighScore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="State.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="StateManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MainMenu.h">
@@ -69,9 +69,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Welcome.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="states.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PlayAdventure.h">
@@ -87,6 +84,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="QuitGame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NewHighScore.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StateManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="states.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -9,7 +9,7 @@ class Gameplay : public State
 {
 public:
 	Gameplay() {};
-	virtual ~Gameplay() {};
+	~Gameplay() {};
 	void Update() override;
 	void Render() override;
 };

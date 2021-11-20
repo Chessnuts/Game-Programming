@@ -8,6 +8,7 @@ private:
 
 public:
 	Player(Coordinates startCoords);
+	~Player() {};
 	Coordinates GetCoords();
 	void MoveNorth();
 	void MoveSouth();

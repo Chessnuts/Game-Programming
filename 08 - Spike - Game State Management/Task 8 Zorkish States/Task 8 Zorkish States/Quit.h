@@ -9,7 +9,7 @@ class Quit : public State
 {
 public:
 	Quit() {};
-	virtual ~Quit() {};
+	~Quit() {};
 	void Update() override;
 	void Render() override;
 };
