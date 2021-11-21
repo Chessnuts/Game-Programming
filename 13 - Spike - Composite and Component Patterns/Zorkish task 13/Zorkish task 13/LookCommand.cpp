@@ -27,19 +27,27 @@ string LookCommand::Execute(vector<string> input, Location* location, Player* pl
 				{
 					for (auto e : location->entities)
 					{
-						if (e->AreYou(input.at(2)))
+						if (e->AreYou(input.at(4)))
 						{
 							for (auto a : e->attributes)
 							{
 								if (a.AreYou("searchable"))
 								{
-									return "\nContains: \n" + e->ItemList();
+									for (auto i : e->items)
+									{
+										if (i->AreYou(input.at(2)))
+										{
+											return i->GetFullDescription();
+										}
+									}
+									return "I cannot find the " + input.at(2) + " in the " + input.at(4);
 								}
-								return "I cannot look inside the " + e->GetName();
+								
 							}
+							return "I cannot look inside the " + e->GetName();
 						}
 					}
-					return "I cannot find the " + input.at(2);
+					return "I cannot find the " + input.at(4);
 				}
 			}
 			else
@@ -76,6 +84,56 @@ string LookCommand::Execute(vector<string> input, Location* location, Player* pl
 	}
 	if (input.size() > 1 && input.at(1) == "in")
 	{
+		if (input.size() > 3 && input.at(3) == "in")
+		{
+			if (input.size() > 4)
+			{
+				if (player->AreYou(input.at(4)))
+				{
+					if (player->HasItem(input.at(2)))
+					{
+						return player->Fetch(input.at(2))->GetFullDescription();
+					}
+				}
+				else
+				{
+					for (auto e : location->entities)
+					{
+						if (e->AreYou(input.at(4)))
+						{
+							for (auto a : e->attributes)
+							{
+								if (a.AreYou("searchable"))
+								{
+									for (auto i : e->items)
+									{
+										if (i->AreYou(input.at(2)))
+										{
+											for (auto aa : i->attributes)
+											{
+												if (aa.AreYou("searchable"))
+												{
+													return "\nContains: \n" + e->ItemList();
+												}
+												return "I cannot look inside the " + i->GetName();
+											}
+										}
+									}
+									return "I cannot find the " + input.at(2) + " in the " + input.at(4);
+								}
+
+							}
+							return "I cannot look inside the " + e->GetName();
+						}
+					}
+					return "I cannot find the " + input.at(4);
+				}
+			}
+			else
+			{
+				return "What did you want to look in?";
+			}
+		}
 		if (input.size() > 2)
 		{
 			if (player->AreYou(input.at(2)))
