@@ -19,11 +19,16 @@ C|south,empty room
 L|small room,east room|Small Room|There isn't much here
 E|flower patch,flowers|Flower patch|It's a small patch of flowers
 E|rock,stone|Stone|It's a small stone|takeable,throwable
-E|chest|Chest|It's a chest, what could be inside|searchable|I|thing:Thing:It's a um thing i guess:takeable
+E|chest|Chest|It's a chest, what could be inside|searchable
+I|chest|thing|Thing|It's a um thing i guess|takeable
 E|torch|Torch|it's a torch sitting on the wall
 C|west,empty room
 
 L|small room,west room|Small Room|There isn't much here
 E|torch|Torch|it's a torch sitting on the wall
-E|troll|Troll|A giant fearsome creature|health|I|gem:Gem:It's a bright gem:takeable/thing:Thing:It's a um thing i guess:takeable/rock,stone:Stone:It's a small stone:takeable,throwable
+E|troll|Troll|A giant fearsome creature|health
+I|troll|bag|Bag|It's a bag that can hold items|searchable,takeable
+I|troll,bag|gem|Gem|It's a bright gem|takeable
+I|troll,bag|thing|Thing|It's a um thing i guess|takeable
+I|troll,bag|rock,stone|Stone|It's a small stone|takeable,throwable
 C|east,empty room

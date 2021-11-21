@@ -39,11 +39,14 @@ string Location::ConnectionList()
 string Location::EntityList()
 {
 	string result = "You can see: \n";
-	if (entities.size() > 0)
+	if (!entities.empty())
 	{
 		for (auto e : entities)
 		{
-			result += "\t" + e.GetShortDescription() + "\n";
+			if (e != nullptr)
+			{
+				result += "\t" + e->GetShortDescription() + "\n";
+			}
 		}
 	}
 	else
@@ -52,6 +55,35 @@ string Location::EntityList()
 	}
 
 	return result;
+}
+
+Entity* Location::Take(string id)
+{
+	Entity* it = Fetch(id);
+
+	//remove the item
+	//inventory is a vector list of pointers to items, not a vecotr list of items
+
+	for (auto v : entities)
+	{
+		if (v->AreYou(it->FirstId()))
+		{
+			entities.erase(find(entities.begin(), entities.end(), v));
+		}
+	}
+	return it;
+}
+
+Entity* Location::Fetch(string id)
+{
+	for (auto it : entities)
+	{
+		if (it->AreYou(id))
+		{
+			return it;
+		}
+	}
+	return nullptr;
 }
 
 void Location::AddConnection(string direction, Location* location)

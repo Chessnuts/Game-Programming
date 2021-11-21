@@ -22,7 +22,7 @@ public:
 
 	bool HasItem(string id);
 	void Put(Entity *it);
-	Entity Take(string id);
+	Entity* Take(string id);
 	Entity* Fetch(string id);
 	string ItemList();
 };

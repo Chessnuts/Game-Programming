@@ -17,5 +17,6 @@ public:
 	bool AreYou(string id);
 	string FirstId();
 	void AddIdentifier(string id);
+	vector<string> GetIdentifiers();
 };
 

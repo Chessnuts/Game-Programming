@@ -18,7 +18,7 @@ string DebugCommand::Execute(vector<string> input, Location* location, Player* p
 
 		for (auto e : location->entities)
 		{
-			output += e.GetFullDescription() + "\n";
+			output += e->GetFullDescription() + "\n";
 		}
 		output += "\n";
 		output += "connected Locations: \n\n";
@@ -32,7 +32,7 @@ string DebugCommand::Execute(vector<string> input, Location* location, Player* p
 			output += "entities: \n";
 			for (auto e : c.second->entities)
 			{
-				output += e.GetFullDescription() + "\n";
+				output += e->GetFullDescription() + "\n";
 			}
 			output += "\n";
 		}

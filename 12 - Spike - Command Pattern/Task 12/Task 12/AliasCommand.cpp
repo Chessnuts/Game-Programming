@@ -15,11 +15,19 @@ string AliasCommand::Execute(vector<string> input, Location* location, Player* p
 			{
 				if (input.size() > 2)
 				{
+					for (auto cc : commands)
+					{
+						if (cc->AreYou(input.at(2)))
+						{
+							return "command already exists.";
+						}
+					}
 					if (!c->AreYou(input.at(2)))
 					{
 						c->AddIdentifier(input.at(2));
 						return "alias added.";
 					}
+					
 					return "alias already exists.";
 				}
 				return "Please specify command for alias " + input.at(1);

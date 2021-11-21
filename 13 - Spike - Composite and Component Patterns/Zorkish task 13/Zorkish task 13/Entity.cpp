@@ -30,7 +30,7 @@ Entity::~Entity()
 
 string Entity::GetShortDescription()
 {
-	return GameObject::GetShortDescription();
+	return GetName();
 }
 
 string Entity::GetDescription()
@@ -40,7 +40,27 @@ string Entity::GetDescription()
 
 string Entity::GetFullDescription()
 {
-	return GameObject::GetFullDescription();
+	string output = GetName() + ": " + GetDescription();
+
+	if (!attributes.at(0).AreYou(" "))
+	{
+		output += " (";
+		for (auto a : attributes)
+		{
+			if (a.AreYou("health"))
+			{
+				output += a.FirstId() + " : " + to_string(health) + ", ";
+			}
+			else
+			{
+				output += a.FirstId() + ", ";
+			}
+		}
+		output = output.substr(0, output.length() - 2);
+		output += ")";
+	}
+	
+	return output;
 }
 
 bool Entity::HasItem(string id)
@@ -57,22 +77,21 @@ bool Entity::HasItem(string id)
 
 void Entity::Put(Entity* it)
 {
-	items.emplace_back(it);
+	items.push_back(it);
 }
 
-Entity Entity::Take(string id)
+Entity* Entity::Take(string id)
 {
-	Entity it = *Fetch(id);
+	Entity *it = Fetch(id);
 
 	//remove the item
 	//inventory is a vector list of pointers to items, not a vecotr list of items
 
 	for (auto v : items)
 	{
-		if (v->AreYou(it.FirstId()))
+		if (v->AreYou(it->FirstId()))
 		{
 			items.erase(find(items.begin(), items.end(), v));
-			delete v;
 		}
 	}
 	return it;

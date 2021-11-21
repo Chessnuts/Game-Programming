@@ -36,6 +36,8 @@ void PlayAdventure::LoadAdventure(string fileName)
 
     fstream fs;
     string str;
+    int loc = -1;
+    int ent = -1;
 
     fs.open(fileName, fstream::in);
 
@@ -55,31 +57,139 @@ void PlayAdventure::LoadAdventure(string fileName)
                 vector<string> details = split(str, '|');
                 if (details.size() > 4)
                 {
-                    locations.back().entities.emplace_back(Entity{ split(details[1], ','), details[2], details[3],  split(details[4], ',') });
-                    if ((details.size() > 6) && (details.at(5) == "I"))
-                    {
-                        vector<string> items = split(details.at(6), '/');
-                        for (auto i : items)
-                        {
-                            vector<string> d = split(str, ':');
-                            if (d.size() > 3)
-                            {
-                                locations.back().entities.back().Put(new Entity{ split(d[0], ','), d[1], d[2],  split(d[3], ',') });
-                            }
-                            else
-                            {
-                                locations.back().entities.back().Put(new Entity{ split(d[0], ','), d[1], d[2],  {" "} });
-                            }
-                        }
-                    }
+                    entities.push_back(Entity{ split(details[1], ','), details[2], details[3],  split(details[4], ',') });
                 }
                 else
                 {
-                    locations.back().entities.emplace_back(Entity{ split(details[1], ','), details[2], details[3], {" "} });
+                    entities.push_back(Entity{ split(details[1], ','), details[2], details[3],  {" "} });
+                }
+            }
+        }
+        if ((str.size() != 0) && (str.at(0) == 'I'))
+        {
+            if (!locations.empty())
+            {
+                vector<string> details = split(str, '|');
+                if (details.size() > 5)
+                {
+                    entities.push_back(Entity{ split(details[2], ','), details[3], details[4],  split(details[5], ',') });
+                }
+                else
+                {
+                    entities.push_back(Entity{ split(details[2], ','), details[3], details[4],  {" "} });
                 }
             }
         }
     }
+
+    fs.close();
+
+    fs.open(fileName, fstream::in);
+
+    while (getline(fs, str))
+    {
+        vector<string> details = split(str, '|');
+
+        if ((str.size() != 0) && (str.at(0) == 'L'))
+        {
+            loc++;
+        }
+        if ((str.size() != 0) && (str.at(0) == 'E'))
+        {
+            ent++;
+            if (!locations.empty())
+            {
+                locations.at(loc).entities.push_back(&(entities.at(ent)));
+            }
+        }
+        if ((str.size() != 0) && (str.at(0) == 'I'))
+        {
+            ent++;
+        }
+    }
+
+    fs.close();
+
+    fs.open(fileName, fstream::in);
+
+    loc = -1;
+    ent = -1;
+
+    while (getline(fs, str))
+    {
+        if ((str.size() != 0) && (str.at(0) == 'L'))
+        {
+            loc++;
+        }
+        if ((str.size() != 0) && (str.at(0) == 'E'))
+        {
+            ent++;
+        }
+        if ((str.size() != 0) && (str.at(0) == 'I'))
+        {
+            ent++;
+            vector<string> details = split(str, '|');
+
+            if (details.size() > 1)
+            {
+                vector<string> destination = split(details.at(1), ',');
+
+                for (auto e : locations.at(loc).entities)
+                {
+                    if (destination.size() > 1)
+                    {
+                        if (e->AreYou(destination.at(0)))
+                        {
+                            for (auto c : e->items)
+                            {
+                                if (c->AreYou(destination.at(1)))
+                                {
+                                    if (details.size() > 4)
+                                    {
+                                        c->Put(&(entities.at(ent)));
+                                    }
+                                    else
+                                    {
+                                        c->Put(&(entities.at(ent)));
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else if (e->AreYou(destination.at(0)))
+                    {
+                        if (details.size() > 4)
+                        {
+
+                            e->Put(&(entities.at(ent)));
+
+                        }
+                        else
+                        {
+                            e->Put(&(entities.at(ent)));
+                        }
+                    }
+                }
+            }
+        }
+    }
+            /*
+            for (auto i : items)
+            {
+                vector<string> d = split(str, ':');
+                if (d.size() > 3)
+                {
+                    entities.push_back(Entity{ split(d[0], ','), d[1], d[2],  split(d[3], ',') });
+                    destination->Put(&entities.back());
+                }
+                else
+                {
+                    entities.push_back(Entity{ split(d[0], ','), d[1], d[2],  {" "} });
+                    destination->Put(&entities.back());
+                }
+            }
+            */
+        
 
     fs.close();
 

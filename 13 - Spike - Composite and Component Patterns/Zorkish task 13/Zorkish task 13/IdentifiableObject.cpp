@@ -37,3 +37,8 @@ void IdentifiableObject::AddIdentifier(string id)
 {
 	identifiers.push_back(id);
 }
+
+vector<string> IdentifiableObject::GetIdentifiers()
+{
+	return identifiers;
+}

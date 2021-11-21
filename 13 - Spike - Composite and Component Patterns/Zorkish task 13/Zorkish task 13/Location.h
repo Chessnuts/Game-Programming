@@ -10,7 +10,7 @@ class Location : public GameObject
 {
 public:
 	map<string, Location*> connections;
-	vector<Entity> entities;
+	vector<Entity*> entities;
 
 	Location() {};
 	Location(vector<string> ids, string n, string d);
@@ -24,5 +24,7 @@ public:
 	string GetShortDescription() override;
 	string GetDescription() override;
 	string GetFullDescription() override;
+	Entity* Take(string id);
+	Entity* Fetch(string id);
 };
 

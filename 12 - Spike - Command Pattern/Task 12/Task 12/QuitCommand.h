@@ -18,3 +18,21 @@ public:
 	string Execute(vector<string> input, Location* location, Player* player) override;
 };
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

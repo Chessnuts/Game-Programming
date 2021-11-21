@@ -16,6 +16,7 @@ private:
 	bool loaded = false;
 	Player player;
 	vector<Location> locations;
+	vector<Entity> entities;
 	CommandProcessor commandProcessor;
 public:
 	PlayAdventure() {};
