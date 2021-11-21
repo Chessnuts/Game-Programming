@@ -27,8 +27,7 @@ C|west,empty room
 L|small room,west room|Small Room|There isn't much here
 E|torch|Torch|it's a torch sitting on the wall
 E|troll|Troll|A giant fearsome creature|health
-I|troll|bag|Bag|It's a bag that can hold items|searchable,takeable
-I|troll,bag|gem|Gem|It's a bright gem|takeable
-I|troll,bag|thing|Thing|It's a um thing i guess|takeable
-I|troll,bag|rock,stone|Stone|It's a small stone|takeable,throwable
+I|troll|gem|Gem|It's a bright gem|takeable
+I|troll|thing|Thing|It's a um thing i guess|takeable
+I|troll|rock,stone|Stone|It's a small stone|takeable,throwable
 C|east,empty room

@@ -1,6 +1,9 @@
 #include "TakeCommand.h"
+#include <iostream>
 
-TakeCommand::TakeCommandd(vector<string> ids) : Command(ids)
+using namespace std;
+
+TakeCommand::TakeCommand(vector<string> ids) : Command(ids)
 {
 
 }
@@ -9,6 +12,45 @@ string TakeCommand::Execute(vector<string> input, Location* location, Player* pl
 {
 	if (input.size() > 1)
 	{
+		// take from
+		if (input.size() > 2 && input.at(2) == "from")
+		{
+			if (input.size() > 3)
+			{
+				for (auto e : location->entities)
+				{
+					if (e->AreYou(input.at(3)))
+					{
+						for (auto a : e->attributes)
+						{
+							if (a.AreYou("searchable"))
+							{
+								for (auto i : e->items)
+								{
+									if (i->AreYou(input.at(1)))
+									{
+										for (auto aa : i->attributes)
+										{
+											if (aa.AreYou("takeable"))
+											{
+												player->Put(e->Take(i->FirstId()));
+												return "You took the " + i->GetName() + " from the " + e->GetName();
+											}
+										}
+										return "I cannot take the " + i->GetName();
+									}
+									return "I cannot find the  " + input.at(1) + " from the " + input.at(3);
+								}
+							}
+						}
+						return "I cannot look inside the " + e->GetName();
+					}
+				}
+				return "I cannot find the " + input.at(3);
+			}
+			return "What did you want to take the " + input.at(1) + " from?";
+		}
+		//take
 		for (auto e : location->entities)
 		{
 			if (e->AreYou(input.at(1)))
@@ -17,10 +59,11 @@ string TakeCommand::Execute(vector<string> input, Location* location, Player* pl
 				{
 					if (a.AreYou("takeable"))
 					{
-						location->
+						player->Put(location->Take(e->FirstId()));
+						return "You took the " + e->GetName();
 					}
 				}
-				return e->GetName();
+				return "I cannot take the " + e->GetName();
 			}
 		}
 		return "I cannot find the " + input.at(1);
@@ -28,44 +71,6 @@ string TakeCommand::Execute(vector<string> input, Location* location, Player* pl
 	}
 	else
 	{
-		return "What did you want to look at?";
+		return "What did you want to take?";
 	}
-	
-	if (input.size() > 1 && input.at(1) == "in")
-	{
-		if (input.size() > 2)
-		{
-			if (player->AreYou(input.at(2)))
-			{
-				return player->GetFullDescription();
-			}
-			else if (player->HasItem(input.at(2)))
-			{
-				return player->Fetch(input.at(2))->GetFullDescription();
-			}
-			else
-			{
-				for (auto e : location->entities)
-				{
-					if (e->AreYou(input.at(2)))
-					{
-						for (auto a : e->attributes)
-						{
-							if (a.AreYou("searchable"))
-							{
-								return "\nContains: \n" + e->ItemList();
-							}
-							return "I cannot look inside the " + e->GetName();
-						}
-					}
-				}
-				return "I cannot find the " + input.at(2);
-			}
-		}
-		else
-		{
-			return "What did you want to look in?";
-		}
-	}
-	return "where did you want to look?";
 }

@@ -27,5 +27,5 @@ string Player::GetDescription()
 
 string Player::GetFullDescription()
 {
-	return GetDescription() + "\n You are carrying: \n"; //add an item list
+	return GetDescription() + "\n You are carrying: \n" + ItemList(); //add an item list
 }
