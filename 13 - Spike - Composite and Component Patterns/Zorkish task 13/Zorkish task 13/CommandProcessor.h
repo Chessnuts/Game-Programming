@@ -5,6 +5,7 @@
 #include "InventoryCommand.h"
 #include "DebugCommand.h"
 #include "TakeCommand.h"
+#include "ThrowCommand.h"
 #include <string>
 #include <vector>
 #include <iostream>
@@ -21,6 +22,7 @@ private:
 	DebugCommand debug;
 	InventoryCommand inventory;
 	TakeCommand take;
+	ThrowCommand throwc;
 
 	vector<Command*> commands;
 	//map<string, vector<string>> aliases;

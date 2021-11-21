@@ -156,8 +156,8 @@ string LookCommand::Execute(vector<string> input, Location* location, Player* pl
 							{
 								return "\nContains: \n" + e->ItemList();
 							}
-							return "I cannot look inside the " + e->GetName();
 						}
+						return "I cannot look inside the " + e->GetName();
 					}
 				}
 				return "I cannot find the " + input.at(2);

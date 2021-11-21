@@ -8,6 +8,7 @@ CommandProcessor::CommandProcessor()
 	debug = DebugCommand({ "debug" });
 	inventory = InventoryCommand({ "inventory" });
 	take = TakeCommand({ "take" });
+	throwc = ThrowCommand({ "throw" });
 
 	commands.push_back(&go);
 	commands.push_back(&look);
@@ -15,6 +16,7 @@ CommandProcessor::CommandProcessor()
 	commands.push_back(&debug);
 	commands.push_back(&inventory);
 	commands.push_back(&take);
+	commands.push_back(&throwc);
 
 	vector<string> inv = { "look", "at", "inventory" };
 	//aliases.insert(make_pair("inventory", inv));
