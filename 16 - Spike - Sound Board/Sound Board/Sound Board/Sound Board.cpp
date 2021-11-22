@@ -1,5 +1,6 @@
 #include <iostream>
 #include <SDL.h>
+#include <sdl_mixer.h>
 
 using namespace std;
 
@@ -9,5 +10,7 @@ bool running = true;
 
 int main(int argc, char* args[])
 {
-    
+
+
+    return 0;
 }
