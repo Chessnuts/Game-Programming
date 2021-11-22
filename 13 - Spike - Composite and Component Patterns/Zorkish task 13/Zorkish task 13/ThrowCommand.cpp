@@ -27,7 +27,7 @@ string ThrowCommand::Execute(vector<string> input, Location* location, Player* p
 								{
 									if (aa.AreYou("health"))
 									{
-										if (e->health > 0)
+										if (e->health != NULL && e->health > 0)
 										{
 											player->Take(p->FirstId());
 											e->health -= 100;

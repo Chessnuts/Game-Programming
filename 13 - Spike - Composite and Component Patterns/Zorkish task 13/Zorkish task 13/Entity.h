@@ -9,7 +9,7 @@ class Entity : public GameObject
 {
 public:
 	vector<Entity*> items;
-	int health = 0;
+	int health;
 	vector<Attribute> attributes;
 
 	Entity() {};
