@@ -24,15 +24,15 @@ bool success = true;
 
 bool loadSounds()
 {
-    /*
+    
     //Load music
-    jazz_music = Mix_LoadMUS("");
+    jazz_music = Mix_LoadMUS("jazz-loop-7163.wav");
     if (jazz_music == nullptr)
     {
         printf("Failed to load beat music! SDL_mixer Error: %s\n", Mix_GetError());
         success = false;
     }
-    */
+    
     //Load sound effects
     gun_SE = Mix_LoadWAV("LASRGun_Star wars blaster 2 (ID 1758)_BSB.wav");
     if (gun_SE == nullptr)
@@ -113,7 +113,7 @@ int main(int argc, char* args[])
             screen = SDL_GetWindowSurface(window);
 
             //Fill the surface green
-            SDL_FillRect(screen, nullptr, SDL_MapRGB(screen->format, 0, 0, 0));
+            SDL_FillRect(screen, nullptr, SDL_MapRGB(screen->format, 255, 255, 255));
 
             //Update the surface
             SDL_UpdateWindowSurface(window);
@@ -143,7 +143,28 @@ int main(int argc, char* args[])
                 switch (e.key.keysym.sym)
                 {
                 case SDLK_0:
-                    //play pause musci
+                    //play pause music
+                    if (Mix_PlayingMusic() == 0)
+                    {
+                        //Play the music
+                        Mix_PlayMusic(jazz_music, -1);
+                    }
+                    //If music is being played
+                    else
+                    {
+                        //If the music is paused
+                        if (Mix_PausedMusic() == 1)
+                        {
+                            //Resume the music
+                            Mix_ResumeMusic();
+                        }
+                        //If the music is playing
+                        else
+                        {
+                            //Pause the music
+                            Mix_PauseMusic();
+                        }
+                    }
                     break;
                 case SDLK_1:
                     // Play Sound
