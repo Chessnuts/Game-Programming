@@ -10,9 +10,9 @@ bool running = true;
 
 int main(int argc, char* args[])
 {
-    SDL_Window* window = NULL;
+    SDL_Window* window = nullptr;
 
-    SDL_Surface* screen = NULL;
+    SDL_Surface* screen = nullptr;
 
     if (SDL_Init(SDL_INIT_VIDEO) < 0)
     {
@@ -23,7 +23,7 @@ int main(int argc, char* args[])
     {
         //Create window
         window = SDL_CreateWindow("SDL DEMO", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
-        if (window == NULL)
+        if (window == nullptr)
         {
             printf("Window could not be created! SDL_Error: %s\n", SDL_GetError());
         }
@@ -32,7 +32,7 @@ int main(int argc, char* args[])
             screen = SDL_GetWindowSurface(window);
 
             //Fill the surface green
-            SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format, 0, 255, 26));
+            SDL_FillRect(screen, nullptr, SDL_MapRGB(screen->format, 0, 255, 26));
 
             //Update the surface
             SDL_UpdateWindowSurface(window);
@@ -60,7 +60,7 @@ int main(int argc, char* args[])
                 switch (e.key.keysym.sym)
                 {
                     case SDLK_r:
-                        SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format, rand() % 256, rand() % 256, rand() % 256));
+                        SDL_FillRect(screen, nullptr, SDL_MapRGB(screen->format, rand() % 256, rand() % 256, rand() % 256));
                         
                         SDL_UpdateWindowSurface(window); //it's just a demo and this is the only thing that's updated so no need to call update all the time
                         break;
