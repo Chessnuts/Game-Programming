@@ -15,7 +15,7 @@ Entity::Entity(vector<string> ids, string n, string d, vector<string> ats = {" "
 	{
 		if (a.AreYou("health"))
 		{
-			health = 100;
+			hp.hp = 100;
 		}
 	}
 }
@@ -49,7 +49,7 @@ string Entity::GetFullDescription()
 		{
 			if (a.AreYou("health"))
 			{
-				output += a.FirstId() + " : " + to_string(health) + ", ";
+				output += a.FirstId() + " : " + to_string(hp.hp) + ", ";
 			}
 			else
 			{

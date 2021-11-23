@@ -2,6 +2,7 @@
 #include <string>
 #include "GameObject.h"
 #include "Attribute.h"
+#include "Health.cpp"
 
 using namespace std;
 
@@ -9,7 +10,7 @@ class Entity : public GameObject
 {
 public:
 	vector<Entity*> items;
-	int health;
+	Health hp = { NULL };
 	vector<Attribute> attributes;
 
 	Entity() {};

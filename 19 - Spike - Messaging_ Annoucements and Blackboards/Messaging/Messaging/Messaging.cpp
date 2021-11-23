@@ -2,15 +2,19 @@
 //
 
 #include <iostream>
+#include "BlackBoard.h"
+
+using namespace std;
 
 int main()
 {
     bool running = true;
 
+    BlackBoard blackboard;
 
     while (running)
     {
-
+       
     }
     return 0;
 }

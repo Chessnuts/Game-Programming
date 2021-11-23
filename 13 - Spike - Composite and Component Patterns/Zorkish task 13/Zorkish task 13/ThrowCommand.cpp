@@ -27,12 +27,12 @@ string ThrowCommand::Execute(vector<string> input, Location* location, Player* p
 								{
 									if (aa.AreYou("health"))
 									{
-										if (e->health != NULL && e->health > 0)
+										if (e->hp.hp != NULL && e->hp.hp > 0)
 										{
 											player->Take(p->FirstId());
-											e->health -= 100;
+											e->hp.hp -= 100;
 											string output = "You threw the " + p->GetName() + " at the " + e->GetName();
-											if (e->health <= 0)
+											if (e->hp.hp <= 0)
 											{
 												output += "\nThe " + e->GetName() + " fell to the ground...";
 												e->attributes.push_back(Attribute({ "searchable" }));
