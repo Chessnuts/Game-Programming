@@ -2,18 +2,10 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include "Message.h"
 
 using namespace std;
 
-struct Message
-{
-public:
-	~Message() {};
-	string from;
-	string to;
-	string message;
-	void* data;
-};
 
 class BlackBoard
 {

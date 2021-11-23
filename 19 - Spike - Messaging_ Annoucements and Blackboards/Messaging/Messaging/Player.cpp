@@ -68,16 +68,22 @@ void Player::Update()
                 blackBoard->AddMessage({"player", command.at(1), "open"});
                 output += "Requested to open " + command.at(1) + ".\n";
             }
-            output += "What would you like to open?\n";
+            else
+            {
+                output += "What would you like to open?\n";
+            }
         }
         else if (command.at(0) == "say")
         {
             if (command.size() > 1 && command.at(1) == "hi")
             {
                 blackBoard->AddMessage({ "player", "npc", "greeting", &name });
-                output += "You said hi?\n";
+                output += "You said hi\n";
             }
-            output += "What would you like to open?\n";
+            else
+            {
+                output += "What would you like to say?\n";
+            }
         }
         else if (command.at(0) == "purchase")
         {
@@ -88,7 +94,10 @@ void Player::Update()
                 blackBoard->AddMessage({ "player", "npc", "purchase",  });
                 output += "Requested to purchase " + command.at(1) + ".\n";
             }
-            output += "What would you like to open?\n";
+            else
+            {
+                output += "What would you like to purchase?\n";
+            }
         }
         else if (command.at(0) == "inventory")
         {

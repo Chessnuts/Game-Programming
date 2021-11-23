@@ -1,4 +1,5 @@
 #include "BlackBoard.h"
+#include <vector>
 
 void BlackBoard::AddMessage(Message message)
 {
@@ -25,16 +26,21 @@ vector<Message*> BlackBoard::GetMessages(vector<string> ids)
 
 void BlackBoard::RemoveMessage(Message* message)
 {
+	int i = 0;
 	for (auto m : messages)
 	{
-		if (&m == message)
+		if (m == *message)
 		{
-			//messages.erase(messages.begin(), messages.end(), m);
+			messages.erase(find(messages.begin(), messages.end(), m));
 		}
 	}
 }
 
 void BlackBoard::clear()
 {
+	for (auto m : messages)
+	{
+		delete m.data;
+	}
 	messages.clear();
 }

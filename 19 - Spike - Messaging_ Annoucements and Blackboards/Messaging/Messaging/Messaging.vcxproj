@@ -145,6 +145,7 @@
     <ClCompile Include="IdentifiableObject.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="Item.cpp" />
+    <ClCompile Include="Message.cpp" />
     <ClCompile Include="Messaging.cpp" />
     <ClCompile Include="Player.cpp" />
   </ItemGroup>
@@ -155,6 +156,7 @@
     <ClInclude Include="IdentifiableObject.h" />
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="Message.h" />
     <ClInclude Include="Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

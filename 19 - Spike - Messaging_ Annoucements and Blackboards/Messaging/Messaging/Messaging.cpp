@@ -47,6 +47,9 @@ int main()
         Render(entities);
         Update(entities);
     }
+
+    blackboard.clear();
+
     return 0;
 }
 

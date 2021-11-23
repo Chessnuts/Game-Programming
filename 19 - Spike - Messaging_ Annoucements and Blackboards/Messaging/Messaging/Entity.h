@@ -2,6 +2,7 @@
 #include <string>
 #include "GameObject.h"
 #include "BlackBoard.h"
+#include "Message.h"
 
 class Entity : public GameObject
 {
