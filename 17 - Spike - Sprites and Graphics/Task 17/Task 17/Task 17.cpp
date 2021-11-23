@@ -28,34 +28,6 @@ SDL_Texture* bg = nullptr;
 vector<SDL_Rect> objects = { { 0, 0, 64, 64 }, { 0, 0, 64, 64 }, { 0, 0, 64, 64 } };
 vector<SDL_Rect> sprites = { { 0, 0, 64, 64 }, { 0, 64, 64, 64 }, { 0, 128, 64, 64 } };
 
-
-SDL_Texture* loadTexture(std::string path)
-{
-    //The final texture
-    SDL_Texture* newTexture = nullptr;
-
-    //Load image at specified path
-    SDL_Surface* loadedSurface = IMG_Load(path.c_str());
-    if (loadedSurface == nullptr)
-    {
-        printf("Unable to load image %s! SDL_image Error: %s\n", path.c_str(), IMG_GetError());
-    }
-    else
-    {
-        //Create texture from surface pixels
-        newTexture = SDL_CreateTextureFromSurface(renderer, loadedSurface);
-        if (newTexture == nullptr)
-        {
-            printf("Unable to create texture from %s! SDL Error: %s\n", path.c_str(), SDL_GetError());
-        }
-
-        //Get rid of old loaded surface
-        SDL_FreeSurface(loadedSurface);
-    }
-
-    return newTexture;
-}
-
 bool init()
 {
     //Initialize SDL
@@ -127,13 +99,24 @@ bool init()
                         }
                     }
                     
-
-                    //render sprites
-                    spriteSheet = loadTexture("tiles.png");
-                    if (spriteSheet == nullptr)
+                    SDL_Surface* surface = IMG_Load("tiles.png");
+                    if (surface == nullptr)
                     {
-                        printf("Failed to load sprite sheet!\n");
+                        printf("Unable to load image %s! SDL_image Error: %s\n", "tiles.png", IMG_GetError());
                         success = false;
+                    }
+                    else
+                    {
+                        //Create texture from surface pixels
+                        spriteSheet = SDL_CreateTextureFromSurface(renderer, surface);
+                        if (spriteSheet == nullptr)
+                        {
+                            printf("Unable to create texture from %s! SDL Error: %s\n", "tiles.png", SDL_GetError());
+                            success = false;
+                        }
+
+                        //Get rid of old loaded surface
+                        SDL_FreeSurface(surface);
                     }
                     
                 }
@@ -149,7 +132,8 @@ void close()
 {
     SDL_DestroyTexture(spriteSheet);
     spriteSheet = nullptr;
-
+    SDL_DestroyTexture(bg);
+    bg = nullptr;
 
     SDL_FreeSurface(background);
     SDL_FreeSurface(screen);
@@ -179,7 +163,6 @@ int main()
 
     while (running && success)
     {
-        
         while (SDL_PollEvent(&e) != 0)
         {
             if (e.type == SDL_QUIT)
@@ -219,7 +202,7 @@ int main()
                     break;
                 case SDLK_3:
                     //turn bg on/off
-                    s3On = !s3On; 
+                    s3On = !s3On;
                     if (s3On)
                     {
                         range = WIDTH - sprites.at(2).w + 1;
@@ -232,14 +215,14 @@ int main()
             }
             //clear screen
             SDL_RenderClear(renderer);
-           
+
 
             //background
             if (bgOn)
             {
                 SDL_RenderCopy(renderer, bg, nullptr, nullptr);
             }
-            
+
             //srpite 1
             if (s1On)
             {
@@ -257,10 +240,9 @@ int main()
             }
 
             SDL_RenderPresent(renderer);
-            
+
         }
     }
-
     close();
 
     return 0;
