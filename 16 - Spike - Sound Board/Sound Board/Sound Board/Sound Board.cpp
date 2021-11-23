@@ -127,6 +127,11 @@ int main(int argc, char* args[])
     //Event handler
     SDL_Event e;
 
+    if (success && Mix_PlayingMusic() == 0)
+    {
+        //Play the music
+        Mix_PlayMusic(jazz_music, -1);
+    }
 
     while (running && success)
     {
@@ -143,28 +148,19 @@ int main(int argc, char* args[])
                 switch (e.key.keysym.sym)
                 {
                 case SDLK_0:
-                    //play pause music
-                    if (Mix_PlayingMusic() == 0)
+                    //If the music is paused
+                    if (Mix_PausedMusic() == 1)
                     {
-                        //Play the music
-                        Mix_PlayMusic(jazz_music, -1);
+                        //Resume the music
+                        Mix_ResumeMusic();
                     }
-                    //If music is being played
+                    //If the music is playing
                     else
                     {
-                        //If the music is paused
-                        if (Mix_PausedMusic() == 1)
-                        {
-                            //Resume the music
-                            Mix_ResumeMusic();
-                        }
-                        //If the music is playing
-                        else
-                        {
-                            //Pause the music
-                            Mix_PauseMusic();
-                        }
+                        //Pause the music
+                        Mix_PauseMusic();
                     }
+                    
                     break;
                 case SDLK_1:
                     // Play Sound
@@ -185,9 +181,6 @@ int main(int argc, char* args[])
     }
 
     close();
-
-    //Quit SDL subsystems
-    SDL_Quit();
 
     return 0;
 }
