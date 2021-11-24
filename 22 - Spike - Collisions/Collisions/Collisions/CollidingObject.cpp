@@ -48,16 +48,52 @@ CollidingObject::CollidingObject(bool moving, int start_x, int start_y)
 
     x_velocity = VELOCITY;
     y_velocity = VELOCITY;
+
+    box = { x, y, SIZE, SIZE };
 }
 
 void CollidingObject::Move(SDL_Rect& object, MODES mode)
 {
+    x += x_velocity;
+    box.x = x;
 
+    if (collisionChecker.CheckForCollision(mode, x, y, SIZE))
+    {
+        SDL_SetRenderDrawColor(renderer,
+            rand() % 256, rand() % 256, rand() % 256,
+            SDL_ALPHA_OPAQUE);
+        x -= x_velocity;
+        box.x = x;
+    }
+
+    y += y_velocity;
+    box.x = x;
+
+    if (collisionChecker.CheckForCollision(mode, x, y, SIZE))
+    {
+        SDL_SetRenderDrawColor(renderer,
+            rand() % 256, rand() % 256, rand() % 256,
+            SDL_ALPHA_OPAQUE);
+        y -= y_velocity;
+        box.y = y;
+    }
 }
 
 void CollidingObject::Render(MODES mode)
 {
-
+    if (mode == MODES::SQUARE)
+    {
+        SDL_RenderDrawRect(renderer, &box);
+    }
+    else if (mode == MODES::CIRCLE)
+    {
+        int radius = SIZE / 2;
+        DrawCircle(renderer, x + radius, y + radius, radius);
+    }
+    else
+    {
+        SDL_RenderDrawRect(renderer, &box);
+    }
 }
 
 bool CollidingObject::operator==(const CollidingObject& co)

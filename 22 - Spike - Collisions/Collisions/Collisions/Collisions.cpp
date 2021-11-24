@@ -7,12 +7,15 @@
 #include <vector>
 #include "CollidingObject.h"
 #include "Modes.h"
+#include "CollisionChecker.h"
 
 using namespace std;
 
 bool running = true;
 const int WIDTH = 800;
 const int HEIGHT = 800;
+
+CollisionChecker collisionChecker;
 
 vector<CollidingObject> objects = { {true, 0, 0}, {false, 400, 400}};
 

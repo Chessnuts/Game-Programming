@@ -2,6 +2,10 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include "Modes.h"
+#include "CollisionChecker.h"
+
+extern CollisionChecker collisionChecker;
+extern SDL_Renderer* renderer;
 
 class CollidingObject
 {
