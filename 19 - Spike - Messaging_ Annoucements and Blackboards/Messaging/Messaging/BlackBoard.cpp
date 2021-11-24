@@ -6,9 +6,9 @@ void BlackBoard::AddMessage(Message message)
 	messages.push_back(message);
 }
 
-vector<Message*> BlackBoard::GetMessages(vector<string> ids)
+vector<Message> BlackBoard::GetMessages(vector<string> ids)
 {
-	vector<Message*> result;
+	vector<Message> result;
 
 	for (auto id : ids)
 	{
@@ -16,7 +16,7 @@ vector<Message*> BlackBoard::GetMessages(vector<string> ids)
 		{
 			if (message.to == id)
 			{
-				result.push_back(&message);
+				result.push_back(message);
 			}
 		}
 	}
@@ -24,12 +24,12 @@ vector<Message*> BlackBoard::GetMessages(vector<string> ids)
 	return result;
 }
 
-void BlackBoard::RemoveMessage(Message* message)
+void BlackBoard::RemoveMessage(Message message)
 {
 	int i = 0;
 	for (auto m : messages)
 	{
-		if (m == *message)
+		if (m == message)
 		{
 			messages.erase(find(messages.begin(), messages.end(), m));
 		}

@@ -6,6 +6,7 @@
 #include "BlackBoard.h"
 #include "Entity.h"
 #include "Player.h"
+#include "Chest.h"
 
 using namespace std;
 
@@ -39,6 +40,9 @@ int main()
 
     Player player = Player({ "Fred", "It's you!", &blackboard });
     entities.push_back(&player);
+
+    Chest chest = Chest({ {"chest"}, "Chest", "It's a small chest", &blackboard });
+    entities.push_back(&chest);
 
     cout << "Debug: game loaded" << endl;
 
