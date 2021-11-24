@@ -22,10 +22,7 @@ Entity::Entity(vector<string> ids, string n, string d, vector<string> ats = {" "
 
 Entity::~Entity()
 {
-	for (auto e : items)
-	{
-		delete e;
-	}
+
 }
 
 string Entity::GetShortDescription()
