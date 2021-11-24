@@ -25,7 +25,7 @@ void NPC::Update()
 {
 	output = GetShortDescription() + "\n";
 
-	vector<Message> messages = blackBoard->GetMessages({ "npc" });
+	vector<Message> messages = blackBoard->GetMessages({"npc", "greg"});
 
 	for (auto m : messages)
 	{
@@ -43,6 +43,10 @@ void NPC::Update()
 				{
 					output += GetName() + ": Hi\n";
 				}
+			}
+			else
+			{
+				output += GetName() + ": Hi\n";
 			}
 			blackBoard->RemoveMessage(m);
 		}
@@ -71,6 +75,8 @@ void NPC::Update()
 				{
 					output += GetName() + ": Hmmmm, I don't know if I can do that for you...\n";
 				}
+
+				delete m.data;
 			}
 			blackBoard->RemoveMessage(m);
 		}

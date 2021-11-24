@@ -117,7 +117,7 @@ void Player::Update()
             {
                 string* n = new string;
                 *n = command.at(1);
-                blackBoard->AddMessage({ "player", "npc", "purchase", n });
+                blackBoard->AddMessage({ "player", "greg", "purchase", n });
                 output += "Requested to purchase " + command.at(1) + ".\n";
             }
             else
