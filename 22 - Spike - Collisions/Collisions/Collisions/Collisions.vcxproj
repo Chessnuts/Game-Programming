@@ -142,7 +142,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CollidingObject.cpp" />
     <ClCompile Include="Collisions.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CollidingObject.h" />
+    <ClInclude Include="Modes.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
