@@ -142,12 +142,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CircleOnCircleCollisionDetector.cpp" />
     <ClCompile Include="CollidingObject.cpp" />
+    <ClCompile Include="CollisionChecker.cpp" />
+    <ClCompile Include="CollisionDetector.cpp" />
     <ClCompile Include="Collisions.cpp" />
+    <ClCompile Include="RectOnRectCollisionDetector.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CircleOnCircleCollisionDetector.h" />
     <ClInclude Include="CollidingObject.h" />
+    <ClInclude Include="CollisionChecker.h" />
+    <ClInclude Include="CollisionDetector.h" />
     <ClInclude Include="Modes.h" />
+    <ClInclude Include="RectOnRectCollisionDetector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

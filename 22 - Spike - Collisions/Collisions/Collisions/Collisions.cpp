@@ -4,10 +4,17 @@
 #include <iostream>
 #include <SDL.h>
 #include <SDL_image.h>
+#include <vector>
 #include "CollidingObject.h"
 #include "Modes.h"
 
+using namespace std;
+
 bool running = true;
+const int WIDTH = 800;
+const int HEIGHT = 800;
+
+vector<CollidingObject> objects = { {true, 0, 0}, {false, 400, 400}};
 
 int main()
 {

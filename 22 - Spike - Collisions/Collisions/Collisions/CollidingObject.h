@@ -6,23 +6,25 @@
 class CollidingObject
 {
 private:
-	int x;
-	int y;
-
 	int x_velocity;
 	int y_velocity;
 
-	
-	SDL_Rect collider;
+	SDL_Rect box;
 public:
+	int x;
+	int y;
+
+	bool isMoving;
 
 	static const int SIZE = 20;
-	static const int MAX_VELOCITY = 10;
+	static const int VELOCITY = 10;
 
-	CollidingObject();
+	CollidingObject(bool moving, int start_x, int start_y);
 
-	void move(SDL_Rect& object, MODES mode);
+	void Move(SDL_Rect& object, MODES mode);
 
-	void render(MODES mode);
+	void Render(MODES mode);
+
+	bool operator==(const CollidingObject &co);
 };
 
