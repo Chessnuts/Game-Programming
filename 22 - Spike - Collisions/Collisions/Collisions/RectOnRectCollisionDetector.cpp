@@ -35,8 +35,6 @@ bool RectOnRectCollisionDetector::CheckCollision(int x, int y, int size)
         return true;
     }
 
-    bool result = false;
-
     for (auto ob : objects)
     {
         if (x != ob.x && y != ob.y)
@@ -44,5 +42,6 @@ bool RectOnRectCollisionDetector::CheckCollision(int x, int y, int size)
             return collision(x, y, size, ob);
         }
     }
+
     return false;
 }
