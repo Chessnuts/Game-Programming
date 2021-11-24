@@ -7,11 +7,11 @@ Inventory::~Inventory()
 {
 	if (!inventory.empty())
 	{
-	for (auto it : inventory)
-	{
-		cout << "Debug: memory freed" << endl;
-		delete it;
-	}
+		for (auto it : inventory)
+		{
+			cout << "Debug: memory freed" << endl;
+			delete it;
+		}
 
 		inventory.clear();
 	}
@@ -34,6 +34,7 @@ void Inventory::Put(Item* it)
 	inventory.push_back(it);
 }
 
+/*
 Item Inventory::Take(string id)
 {
 	Item it = *Fetch(id);
@@ -52,7 +53,7 @@ Item Inventory::Take(string id)
 
 	return it;
 }
-
+*/
 Item* Inventory::Fetch(string id)
 {
 	for (auto it : inventory)

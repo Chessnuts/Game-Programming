@@ -7,6 +7,7 @@
 #include "Entity.h"
 #include "Player.h"
 #include "Chest.h"
+#include "NPC.h"
 
 using namespace std;
 
@@ -14,7 +15,7 @@ bool running = true;
 
 void Update(vector<Entity*> &entities)
 {
-    cout << "Debug: update called" << endl;
+    //cout << "Debug: update called" << endl;
     for (auto e : entities)
     {
         e->Update();
@@ -23,7 +24,7 @@ void Update(vector<Entity*> &entities)
 
 void Render(vector<Entity*>& entities)
 {
-    cout << "Debug: render called" << endl;
+    //cout << "Debug: render called" << endl;
     for (auto e : entities)
     {
         e->Render();
@@ -43,6 +44,9 @@ int main()
 
     Chest chest = Chest({ {"chest"}, "Chest", "It's a small chest", &blackboard });
     entities.push_back(&chest);
+
+    NPC greg = NPC({ {"npc", "greg"}, "Greg", "It's greg the shopkeeper", &blackboard });
+    entities.push_back(&greg);
 
     cout << "Debug: game loaded" << endl;
 

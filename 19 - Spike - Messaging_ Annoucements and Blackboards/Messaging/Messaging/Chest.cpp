@@ -36,9 +36,11 @@ void Chest::Update()
 			blackBoard->RemoveMessage(m);
 		}
 	}
+
+	output = GetShortDescription() + "\n";
 }
 
 void Chest::Render()
 {
-	cout << GetShortDescription() << endl << endl;
+	cout << output << endl;
 }

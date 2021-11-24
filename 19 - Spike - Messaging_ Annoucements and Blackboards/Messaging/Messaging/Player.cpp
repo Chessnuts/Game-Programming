@@ -1,6 +1,7 @@
 #include "Player.h"
 #include <iostream>
 #include <sstream>
+#include "Item.h"
 
 using namespace std;
 
@@ -47,12 +48,37 @@ string Player::GetFullDescription()
 
 void Player::Update()
 {
-    cout << "Debug: Player update" << endl;
+    //cout << "Debug: Player update" << endl;
     output = "";
     string input;
     getline(cin, input);
 
     vector<string> command = split(input, ' ');
+    vector<Message> messages = blackBoard->GetMessages({ "player" });
+
+    for (auto m : messages)
+    {
+        if (m.message == "receive item")
+        {
+            if (m.data != nullptr)
+            {
+                try
+                {
+                    Item* it = reinterpret_cast<Item*>(m.data);
+
+                    inventory.Put(it);
+
+                    output += "You got a " + it->GetName() + " from " + m.from + "!\n";
+                }
+                catch (...)
+                {
+                    output += GetName() + ": I can't do anything with this...\n";
+                    delete m.data;
+                }
+            }
+            blackBoard->RemoveMessage(m);
+        }
+    }
 
     if (!input.empty())
     {
@@ -89,9 +115,9 @@ void Player::Update()
         {
             if (command.size() > 1)
             {
-                //string* n = new string;
-                //*n = command.at(1);
-                blackBoard->AddMessage({ "player", "npc", "purchase",  });
+                string* n = new string;
+                *n = command.at(1);
+                blackBoard->AddMessage({ "player", "npc", "purchase", n });
                 output += "Requested to purchase " + command.at(1) + ".\n";
             }
             else
