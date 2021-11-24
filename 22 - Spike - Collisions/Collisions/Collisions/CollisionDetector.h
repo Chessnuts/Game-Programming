@@ -9,6 +9,6 @@ class CollisionDetector
 public:
 	CollisionDetector() {};
 	~CollisionDetector() {};
-	virtual bool CheckCollision(int x, int y, int size) = 0;
+	virtual bool CheckCollision(int* x, int* y, int* size) { return false; };
 };
 

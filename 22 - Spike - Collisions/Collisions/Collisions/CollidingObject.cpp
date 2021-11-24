@@ -1,4 +1,8 @@
 #include "CollidingObject.h"
+#include "CollisionChecker.h"
+#include <iostream>
+
+extern CollisionChecker collisionChecker;
 
 // Function from: https://stackoverflow.com/questions/38334081/howto-draw-circles-arcs-and-vector-graphics-in-sdl
 void DrawCircle(SDL_Renderer* renderer, int centreX, int centreY, int radius)
@@ -43,8 +47,8 @@ CollidingObject::CollidingObject(bool moving, int start_x, int start_y)
 {
     isMoving = moving;
 
-    x = 0;
-    y = 0;
+    x = start_x;
+    y = start_y;
 
     x_velocity = VELOCITY;
     y_velocity = VELOCITY;
@@ -52,30 +56,43 @@ CollidingObject::CollidingObject(bool moving, int start_x, int start_y)
     box = { x, y, SIZE, SIZE };
 }
 
-void CollidingObject::Move(SDL_Rect& object, MODES mode)
+void CollidingObject::Move(MODES mode)
 {
-    x += x_velocity;
-    box.x = x;
-
-    if (collisionChecker.CheckForCollision(mode, x, y, SIZE))
+    
+    if (isMoving)
     {
-        SDL_SetRenderDrawColor(renderer,
-            rand() % 256, rand() % 256, rand() % 256,
-            SDL_ALPHA_OPAQUE);
-        x -= x_velocity;
+        x += x_velocity;
         box.x = x;
-    }
 
-    y += y_velocity;
-    box.x = x;
+        if (collisionChecker.CheckForCollision(mode, &x, &y, &SIZE))
+        {
+            c1 = rand() % 256;
+            c2 = rand() % 256;
+            c3 = rand() % 256;
+            
+            cout << "collision detected" << endl;
+            x -= x_velocity;
+            x_velocity *= -1;
+            box.x = x;
+        }
 
-    if (collisionChecker.CheckForCollision(mode, x, y, SIZE))
-    {
-        SDL_SetRenderDrawColor(renderer,
-            rand() % 256, rand() % 256, rand() % 256,
-            SDL_ALPHA_OPAQUE);
-        y -= y_velocity;
+        y += y_velocity;
         box.y = y;
+
+        if (collisionChecker.CheckForCollision(mode, &x, &y, &SIZE))
+        {
+
+            c1 = rand() % 256;
+            c2 = rand() % 256;
+            c3 = rand() % 256;
+
+            cout << "collision detected" << endl;
+            y -= y_velocity;
+            y_velocity *= -1;
+            box.y = y;
+        }
+
+        SDL_SetRenderDrawColor(renderer, c1, c2, c3, 255);
     }
 }
 

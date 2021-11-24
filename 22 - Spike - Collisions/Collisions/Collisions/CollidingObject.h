@@ -2,9 +2,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include "Modes.h"
-#include "CollisionChecker.h"
 
-extern CollisionChecker collisionChecker;
 extern SDL_Renderer* renderer;
 
 class CollidingObject
@@ -12,7 +10,9 @@ class CollidingObject
 private:
 	int x_velocity;
 	int y_velocity;
-
+	int c1 = 0;
+	int c2 = 0;
+	int c3 = 0;
 	SDL_Rect box;
 public:
 	int x;
@@ -20,12 +20,13 @@ public:
 
 	bool isMoving;
 
-	static const int SIZE = 20;
-	static const int VELOCITY = 10;
+	int SIZE = 80;
+	int VELOCITY = 6;
 
 	CollidingObject(bool moving, int start_x, int start_y);
+	~CollidingObject() {};
 
-	void Move(SDL_Rect& object, MODES mode);
+	void Move(MODES mode);
 
 	void Render(MODES mode);
 

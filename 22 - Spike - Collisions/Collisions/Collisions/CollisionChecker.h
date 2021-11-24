@@ -1,8 +1,9 @@
 #pragma once
 #include "Modes.h"
-#include "CollisionDetector.h"
 #include "CircleOnCircleCollisionDetector.h"
 #include "RectOnRectCollisionDetector.h"
+
+using namespace std;
 
 class CollisionChecker
 {
@@ -14,6 +15,6 @@ public:
 	CollisionChecker() {};
 	~CollisionChecker() {};
 
-	bool CheckForCollision(MODES mode, int x, int y, int size);
+	bool CheckForCollision(MODES mode, int* x, int* y, int* size);
 };
 

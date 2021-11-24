@@ -1,20 +1,22 @@
 #include "RectOnRectCollisionDetector.h"
 
-extern const int WIDTH;
-extern const int HEIGHT;
-extern vector<CollidingObject> objects;
+const int WIDTH = 800;
+const int HEIGHT = 800;
+extern CollidingObject *wall;
 
-bool collision(int x, int y, int size, CollidingObject ob)
+
+
+bool RectOnRectCollisionDetector::collision(int* x, int* y, int* size)
 {
-    int al = x;
-    int ar = x + size;
-    int at = y;
-    int ab = y + size;
+    al = *x;
+    ar = *x + *size;
+    at = *y;
+    ab = *y + *size;
 
-    int bl = ob.x;
-    int br = ob.x + ob.SIZE;
-    int bt = ob.y;
-    int bb = ob.y + ob.SIZE;
+    bl = wall->x;
+    br = wall->x + wall->SIZE;
+    bt = wall->y;
+    bb = wall->y + wall->SIZE;
 
     if (ab <= bt)
         return false;
@@ -28,20 +30,19 @@ bool collision(int x, int y, int size, CollidingObject ob)
     return true;
 }
 
-bool RectOnRectCollisionDetector::CheckCollision(int x, int y, int size)
+RectOnRectCollisionDetector::RectOnRectCollisionDetector()
 {
-    if (x < 0 || y < 0 || x + size > WIDTH || y + size > HEIGHT)
+
+}
+
+bool RectOnRectCollisionDetector::CheckCollision(int* x, int* y, int* size)
+{
+    if (*x < 0 || *y < 0 || *x + *size > WIDTH || *y + *size > HEIGHT)
     {
         return true;
     }
-
-    for (auto ob : objects)
-    {
-        if (x != ob.x && y != ob.y)
-        {
-            return collision(x, y, size, ob);
-        }
-    }
+    return collision(x, y, size);
+ 
 
     return false;
 }

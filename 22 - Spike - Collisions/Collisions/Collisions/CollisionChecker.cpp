@@ -1,6 +1,6 @@
 #include "CollisionChecker.h"
 
-bool CollisionChecker::CheckForCollision(MODES mode, int x, int y, int size)
+bool CollisionChecker::CheckForCollision(MODES mode, int *x, int *y, int *size)
 {
     if (mode == MODES::SQUARE)
     {
