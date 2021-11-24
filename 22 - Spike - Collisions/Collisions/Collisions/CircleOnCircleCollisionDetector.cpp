@@ -24,9 +24,9 @@ bool CircleOnCircleCollisionDetector::CheckCollision(int *x, int *y, int *size)
         return true;
     }
 
-    int distSquared = (((c2_x - c1_x) ^ 2) + ((c2_y - c1_y) ^ 2));
-    int radSquared = (c1_rad + c2_rad) ^ 2;
-    if (distSquared <= radSquared && distSquared != 0)
+    int distSquared = (c2_x - c1_x)* (c2_x - c1_x) + (c2_y - c1_y) * (c2_y - c1_y);
+    int radSquared = (c1_rad + c2_rad) * (c1_rad + c2_rad);
+    if (distSquared < radSquared)
     {
         return true;
     }
